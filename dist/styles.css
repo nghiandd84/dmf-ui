@@ -1,0 +1,528 @@
+.tippy-box[data-placement^=top]>.tippy-svg-arrow{bottom:0}.tippy-box[data-placement^=top]>.tippy-svg-arrow:after,.tippy-box[data-placement^=top]>.tippy-svg-arrow>svg{top:16px;transform:rotate(180deg)}.tippy-box[data-placement^=bottom]>.tippy-svg-arrow{top:0}.tippy-box[data-placement^=bottom]>.tippy-svg-arrow>svg{bottom:16px}.tippy-box[data-placement^=left]>.tippy-svg-arrow{right:0}.tippy-box[data-placement^=left]>.tippy-svg-arrow:after,.tippy-box[data-placement^=left]>.tippy-svg-arrow>svg{transform:rotate(90deg);top:calc(50% - 3px);left:11px}.tippy-box[data-placement^=right]>.tippy-svg-arrow{left:0}.tippy-box[data-placement^=right]>.tippy-svg-arrow:after,.tippy-box[data-placement^=right]>.tippy-svg-arrow>svg{transform:rotate(-90deg);top:calc(50% - 3px);right:11px}.tippy-svg-arrow{width:16px;height:16px;fill:#333;text-align:initial}.tippy-svg-arrow,.tippy-svg-arrow>svg{position:absolute}
+.tippy-box[data-animation=scale][data-placement^=top]{transform-origin:bottom}.tippy-box[data-animation=scale][data-placement^=bottom]{transform-origin:top}.tippy-box[data-animation=scale][data-placement^=left]{transform-origin:right}.tippy-box[data-animation=scale][data-placement^=right]{transform-origin:left}.tippy-box[data-animation=scale][data-state=hidden]{transform:scale(.5);opacity:0}
+.tippy-box[data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-box[data-animation=shift-away][data-state=hidden][data-placement^=top]{transform:translateY(10px)}.tippy-box[data-animation=shift-away][data-state=hidden][data-placement^=bottom]{transform:translateY(-10px)}.tippy-box[data-animation=shift-away][data-state=hidden][data-placement^=left]{transform:translateX(10px)}.tippy-box[data-animation=shift-away][data-state=hidden][data-placement^=right]{transform:translateX(-10px)}
+/* purgecss start ignore */
+
+:root {
+  font-size: 16px;
+  --mf-primary-50: #eff6ff;
+  --mf-primary-100: #dbeafe;
+  --mf-primary-200: #bfdbfe;
+  --mf-primary-300: #93c5fd;
+  --mf-primary-400: #60a5fa;
+  --mf-primary-500: #3b82f6;
+  --mf-primary-600: #2563eb;
+  --mf-primary-700: #1d4ed8;
+  --mf-primary-800: #1e40af;
+  --mf-primary-900: #1e3a8a;
+  --mf-info-50: #f9fafb;
+  --mf-info-100: #f3f4f6;
+  --mf-info-200: #e5e7eb;
+  --mf-info-300: #d1d5db;
+  --mf-info-400: #9ca3af;
+  --mf-info-500: #6b7280;
+  --mf-info-600: #4b5563;
+  --mf-info-700: #374151;
+  --mf-info-800: #1f2937;
+  --mf-info-900: #111827;
+  --mf-success-50: #ecfdf5;
+  --mf-success-100: #d1fae5;
+  --mf-success-200: #a7f3d0;
+  --mf-success-300: #6ee7b7;
+  --mf-success-400: #34d399;
+  --mf-success-500: #10b981;
+  --mf-success-600: #059669;
+  --mf-success-700: #047857;
+  --mf-success-800: #065f46;
+  --mf-success-900: #064e3b;
+  --mf-danger-50: #fef2f2;
+  --mf-danger-100: #fee2e2;
+  --mf-danger-200: #fecaca;
+  --mf-danger-300: #fca5a5;
+  --mf-danger-400: #f87171;
+  --mf-danger-500: #ef4444;
+  --mf-danger-600: #dc2626;
+  --mf-danger-700: #b91c1c;
+  --mf-danger-800: #991b1b;
+  --mf-danger-900: #7f1d1d;
+  --mf-warning-50: #fffbeb;
+  --mf-warning-100: #fef3c7;
+  --mf-warning-200: #fde68a;
+  --mf-warning-300: #fcd34d;
+  --mf-warning-400: #fbbf24;
+  --mf-warning-500: #f59e0b;
+  --mf-warning-600: #d97706;
+  --mf-warning-700: #b45309;
+  --mf-warning-800: #92400e;
+  --mf-warning-900: #78350f;
+  --mf-secondary-50: #eef2ff;
+  --mf-secondary-100: #e0e7ff;
+  --mf-secondary-200: #c7d2fe;
+  --mf-secondary-300: #a5b4fc;
+  --mf-secondary-400: #818cf8;
+  --mf-secondary-500: #6366f1;
+  --mf-secondary-600: #4f46e5;
+  --mf-secondary-700: #4338ca;
+  --mf-secondary-800: #3730a3;
+  --mf-secondary-900: #312e81;
+}
+
+/* Material Tailwind Input */
+
+.mt-input + label:after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  top: 0.125rem;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-scale-x: 0;
+  border-width: 1px;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 2px;
+  border-left-width: 0px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-duration: 300ms;
+}
+
+.mt-input:focus + label:after {
+  --tw-scale-x: 1;
+}
+
+.mt-input:not(:-moz-placeholder-shown) + label span {
+  top: -14%;
+}
+
+.mt-input:not(:-ms-input-placeholder) + label span {
+  top: -14%;
+}
+
+.mt-input:focus + label span,
+.mt-input:not(:placeholder-shown) + label span {
+  top: -14%;
+}
+
+.mt-input:not(:-moz-placeholder-shown) + label span{
+  font-size: 0.75rem;
+  line-height: 1rem;
+  line-height: 1.25;
+}
+
+.mt-input:not(:-ms-input-placeholder) + label span{
+  font-size: 0.75rem;
+  line-height: 1rem;
+  line-height: 1.25;
+}
+
+.mt-input:focus + label span, .mt-input:not(:placeholder-shown) + label span{
+  font-size: 0.75rem;
+  line-height: 1rem;
+  line-height: 1.25;
+}
+
+.texterea:not(:-moz-placeholder-shown) + label span {
+  top: -22px !important;
+}
+
+.texterea:not(:-ms-input-placeholder) + label span {
+  top: -22px !important;
+}
+
+.texterea:focus + label span,
+.texterea:not(:placeholder-shown) + label span {
+  top: -22px !important;
+}
+
+/* Material Tailwind Input Outline */
+
+.mt-input-outline:not(:-moz-placeholder-shown) {
+  border-top: transparent !important;
+}
+
+.mt-input-outline:not(:-ms-input-placeholder) {
+  border-top: transparent !important;
+}
+
+.mt-input-outline:focus,
+.mt-input-outline:not(:placeholder-shown) {
+  border-top: transparent !important;
+}
+
+.mt-input-outline + label {
+  line-height: 3.625 !important;
+}
+
+.mt-input-outline:not(:-moz-placeholder-shown) + label{
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+  line-height: 1.25 !important;
+}
+
+.mt-input-outline:not(:-ms-input-placeholder) + label{
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+  line-height: 1.25 !important;
+}
+
+.mt-input-outline:focus + label, .mt-input-outline:not(:placeholder-shown) + label{
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+  line-height: 1.25 !important;
+}
+
+.mt-input-outline + label:before,
+.mt-input-outline + label:after {
+  content: '';
+}
+
+.mt-input-outline + label:before, .mt-input-outline + label:after{
+  pointer-events: none;
+  margin-top: 0.375rem;
+  box-sizing: border-box;
+  display: block;
+  height: 0.5rem;
+  width: 0.625rem;
+  border-width: 1px;
+  border-top-width: 2px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-color: transparent;
+}
+
+.mt-input-outline:not(:-moz-placeholder-shown) + label:before, .mt-input-outline:not(:-moz-placeholder-shown) + label:after{
+  border-top-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+}
+
+.mt-input-outline:not(:-ms-input-placeholder) + label:before, .mt-input-outline:not(:-ms-input-placeholder) + label:after{
+  border-top-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+}
+
+.mt-input-outline:not(:placeholder-shown) + label:before, .mt-input-outline:not(:placeholder-shown) + label:after{
+  border-top-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+}
+
+.mt-input-outline:focus + label::before, .mt-input-outline:focus + label::after{
+  border-top-width: 2px;
+}
+
+.mt-input-outline + label:before {
+  margin-right: 0.25rem;
+  border-top-left-radius: 0.5rem;
+}
+
+.mt-input-outline + label:after {
+  margin-left: 0.25rem;
+  flex-grow: 1;
+  border-top-right-radius: 0.5rem;
+}
+
+/* Material Tailwind Radio Button */
+
+.mt-radio:checked + label span {
+  box-shadow: 0px 0px 0px 2px white inset;
+  --tw-bg-opacity: 1 !important;
+}
+
+.mt-radio:checked + label {
+  --tw-text-opacity: 1;
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+
+.mt-radio + label span::before {
+  content: '';
+  top: -1.5px;
+  left: -1.5px;
+  transform: scale3d(1, 1, 1);
+  position: absolute;
+  z-index: 10;
+  margin: 0px;
+  display: block;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 9999px;
+  opacity: 0;
+}
+
+.mt-radio:checked + label span::before {
+  -webkit-animation: radio-ripple 0.3s linear;
+          animation: radio-ripple 0.3s linear;
+}
+
+/* Material Tailwind Checkbox */
+
+.mt-checkbox:checked + label span {
+  --tw-bg-opacity: 1 !important;
+}
+
+.mt-checkbox:checked + label {
+  --tw-text-opacity: 1;
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+
+.mt-checkbox + label span::before {
+  content: '';
+  top: -1px;
+  left: -1.5px;
+  transform: scale3d(2, 2, 1);
+  position: absolute;
+  z-index: 10;
+  margin: 0px;
+  display: block;
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 9999px;
+  opacity: 0;
+}
+
+.mt-checkbox + label span::after {
+  content: '';
+  top: 1px;
+  left: 6px;
+  position: absolute;
+  height: 0.875rem;
+  width: 0.375rem;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-rotate: 45deg;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  border-color: transparent;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-duration: 200ms;
+}
+
+.mt-checkbox:checked + label span::before {
+  -webkit-animation: radio-ripple 0.3s linear;
+          animation: radio-ripple 0.3s linear;
+}
+
+.mt-checkbox:checked + label span::after {
+  --tw-border-opacity: 1;
+  border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+}
+
+/* Material Tailwind Input Colors */
+
+.mt-input-primary-500:focus + label:after {
+  border-color: var(--mf-primary-500);
+}
+
+.mt-input-secondary-500:focus + label:after {
+  border-color: var(--mf-secondary-500);
+}
+
+.mt-input-success-500:focus + label:after {
+  border-color: var(--mf-success-500);
+}
+
+.mt-input-danger-500:focus + label:after {
+  border-color: var(--mf-danger-500);
+}
+
+.mt-input-warning-500:focus + label:after {
+  border-color: var(--mf-warning-500);
+}
+
+.mt-input-info-500:focus + label:after {
+  border-color: var(--mf-info-500);
+}
+
+/* Material Tailwind Input Outline Colors */
+
+.mt-input-outline-primary-500:focus, .mt-input-outline-primary-500:focus + label, .mt-input-outline-primary-500:focus + label:before, .mt-input-outline-primary-500:focus + label:after{
+  border-color: var(--mf-primary-500);
+  color: var(--mf-primary-500);
+}
+
+.mt-input-outline-secondary-500:focus, .mt-input-outline-secondary-500:focus + label, .mt-input-outline-secondary-500:focus + label:before, .mt-input-outline-secondary-500:focus + label:after{
+  border-color: var(--mf-secondary-500);
+  color: var(--mf-secondary-500);
+}
+
+.mt-input-outline-success-500:focus, .mt-input-outline-success-500:focus + label, .mt-input-outline-success-500:focus + label:before, .mt-input-outline-success-500:focus + label:after{
+  border-color: var(--mf-success-500);
+  color: var(--mf-success-500);
+}
+
+.mt-input-outline-danger-500:focus, .mt-input-outline-danger-500:focus + label, .mt-input-outline-danger-500:focus + label:before, .mt-input-outline-danger-500:focus + label:after{
+  border-color: var(--mf-danger-500);
+  color: var(--mf-danger-500);
+}
+
+.mt-input-outline-warning-500:focus, .mt-input-outline-warning-500:focus + label, .mt-input-outline-warning-500:focus + label:before, .mt-input-outline-warning-500:focus + label:after{
+  border-color: var(--mf-warning-500);
+  color: var(--mf-warning-500);
+}
+
+.mt-input-outline-info-500:focus, .mt-input-outline-info-500:focus + label, .mt-input-outline-info-500:focus + label:before, .mt-input-outline-info-500:focus + label:after{
+  border-color: var(--mf-info-500);
+  color: var(--mf-info-500);
+}
+
+.mt-input-outline-error:not(:-moz-placeholder-shown) + label, .mt-input-outline-error:not(:-moz-placeholder-shown) + label:before, .mt-input-outline-error:not(:-moz-placeholder-shown) + label:after{
+  --tw-border-opacity: 1;
+  border-color: rgba(239, 68, 68, var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
+.mt-input-outline-error:not(:-ms-input-placeholder) + label, .mt-input-outline-error:not(:-ms-input-placeholder) + label:before, .mt-input-outline-error:not(:-ms-input-placeholder) + label:after{
+  --tw-border-opacity: 1;
+  border-color: rgba(239, 68, 68, var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
+.mt-input-outline-error:not(:placeholder-shown) + label, .mt-input-outline-error:not(:placeholder-shown) + label:before, .mt-input-outline-error:not(:placeholder-shown) + label:after{
+  --tw-border-opacity: 1;
+  border-color: rgba(239, 68, 68, var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
+.mt-input-outline-success:not(:-moz-placeholder-shown) + label, .mt-input-outline-success:not(:-moz-placeholder-shown) + label:before, .mt-input-outline-success:not(:-moz-placeholder-shown) + label:after{
+  --tw-border-opacity: 1;
+  border-color: rgba(16, 185, 129, var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(16, 185, 129, var(--tw-text-opacity));
+}
+
+.mt-input-outline-success:not(:-ms-input-placeholder) + label, .mt-input-outline-success:not(:-ms-input-placeholder) + label:before, .mt-input-outline-success:not(:-ms-input-placeholder) + label:after{
+  --tw-border-opacity: 1;
+  border-color: rgba(16, 185, 129, var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(16, 185, 129, var(--tw-text-opacity));
+}
+
+.mt-input-outline-success:not(:placeholder-shown) + label, .mt-input-outline-success:not(:placeholder-shown) + label:before, .mt-input-outline-success:not(:placeholder-shown) + label:after{
+  --tw-border-opacity: 1;
+  border-color: rgba(16, 185, 129, var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(16, 185, 129, var(--tw-text-opacity));
+}
+
+/* Material Tailwind Radio Button and Checkbox Colors */
+
+.mt-radio-primary-500:checked + label span, .mt-radio-primary-500 + label span::before, .mt-checkbox-primary-500:checked + label span, .mt-checkbox-primary-500 + label span::before{
+  border-color: var(--mf-primary-500);
+  background-color: var(--mf-primary-500);
+  --tw-bg-opacity: 0.2;
+}
+
+.mt-secondary-500:checked + label span, .mt-radio--500 + label span::before, .mt-checkbox-secondary-500:checked + label span, .mt-checkbox-secondary-500 + label span::before{
+  border-color: var(--mf-secondary-500);
+  background-color: var(--mf-secondary-500);
+  --tw-bg-opacity: 0.2;
+}
+
+.mt-radio-success-500:checked + label span, .mt-radio-success-500 + label span::before, .mt-checkbox-success-500:checked + label span, .mt-checkbox-success-500 + label span::before{
+  border-color: var(--mf-success-500);
+  background-color: var(--mf-success-500);
+  --tw-bg-opacity: 0.2;
+}
+
+.mt-radio-warning-500:checked + label span, .mt-radio-warning-500 + label span::before, .mt-checkbox-warning-500:checked + label span, .mt-checkbox-warning-500 + label span::before{
+  border-color: var(--mf-warning-500);
+  background-color: var(--mf-warning-500);
+  --tw-bg-opacity: 0.2;
+}
+
+.mt-radio-danger-500:checked + label span, .mt-radio-danger-500 + label span::before, .mt-checkbox-danger-500:checked + label span, .mt-checkbox-danger-500 + label span::before{
+  border-color: var(--mf-danger-500);
+  background-color: var(--mf-danger-500);
+  --tw-bg-opacity: 0.2;
+}
+
+.mt-radio-info-500:checked + label span, .mt-radio-info-500 + label span::before, .mt-checkbox-info-500:checked + label span, .mt-checkbox-info-500 + label span::before{
+  border-color: var(--mf-info-500);
+  background-color: var(--mf-info-500);
+  --tw-bg-opacity: 0.2;
+}
+
+/* Tippy Boxx */
+
+.tippy-box:focus {
+  outline: none;
+}
+
+/* Tippy Animation */
+
+.tippy-box[data-animation='scale'] {
+  transform-origin: top left !important;
+}
+
+/* Tippy Arrow */
+
+.arrow-light .tippy-svg-arrow {
+  fill: #fff;
+}
+
+.arrow-dark .tippy-svg-arrow {
+  fill: rgba(0, 0, 0, 0.8);
+}
+
+/* Material Tailwind Radio Button Ripple Effect Animation */
+
+@-webkit-keyframes radio-ripple {
+  from {
+    opacity: 0;
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale3d(2, 2, 1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale3d(3, 3, 1);
+  }
+}
+
+@keyframes radio-ripple {
+  from {
+    opacity: 0;
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale3d(2, 2, 1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale3d(3, 3, 1);
+  }
+}
+
+/* purgecss end ignore */
+

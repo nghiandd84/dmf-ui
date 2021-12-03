@@ -1,0 +1,19 @@
+{
+  "presets": [
+    "@babel/preset-typescript",
+    "@babel/preset-react",    
+    [
+      "@emotion/babel-preset-css-prop",
+      {
+        "labelFormat": "mf-ui-[local]",
+        "throwIfNamespace": true
+      }
+    ],
+    "@babel/preset-env"
+  ],
+  "plugins": [
+    "babel-plugin-twin",
+    "babel-plugin-macros",
+    ["@babel/transform-runtime"]
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "ui",
+  "exposes": {
+    "./Label": "./src/components/Label/Label",
+    "./Button": "./src/components/Button/Button",
+    "./alert/Alert": "./src/components/alert/Alert/Alert",
+    "./alert/ClosingAlert": "./src/components/alert/ClosingAlert/ClosingAlert",
+
+    "./card/Card": "./src/components/card/Card/Card",
+    "./card/CardBody": "./src/components/card/CardBody/CardBody",
+    "./card/CardFooter": "./src/components/card/CardFooter/CardFooter",
+    "./card/CardHeader": "./src/components/card/CardHeader/CardHeader",
+    "./card/CardImage": "./src/components/card/CardImage/CardImage",
+    "./card/CardRow": "./src/components/card/CardRow/CardRow",
+    "./card/CardStatus": "./src/components/card/CardStatus/CardStatus",
+    "./card/CardStatusFooter": "./src/components/card/CardStatusFooter/CardStatusFooter",
+
+    "./typography/H1": "./src/components/typography/Heading1/Heading1",
+    "./typography/H2": "./src/components/typography/Heading2/Heading2",
+    "./typography/H3": "./src/components/typography/Heading3/Heading3",
+    "./typography/H4": "./src/components/typography/Heading4/Heading4",
+    "./typography/H5": "./src/components/typography/Heading5/Heading5",
+    "./typography/H6": "./src/components/typography/Heading6/Heading6",
+    "./typography/LeadText": "./src/components/typography/LeadText/LeadText",
+    "./typography/Paragraph": "./src/components/typography/Paragraph/Paragraph",
+    "./typography/Quote": "./src/components/typography/Quote/Quote",
+    "./typography/Small": "./src/components/typography/Small/Small",
+
+    "./Checkbox": "./src/components/Checkbox/Checkbox",
+    "./Radio": "./src/components/Radio/Radio",
+
+    "./Dropdown": "./src/components/dropdown/Dropdown/Dropdown",
+    "./DropdownItem": "./src/components/dropdown/DropdownItem/DropdownItem",
+    "./DropdownLink": "./src/components/dropdown/DropdownLink/DropdownLink",
+    "./Image": "./src/components/Image/Image",
+    "./Input": "./src/components/Input/Input",
+    "./TextArea": "./src/components/TextArea/TextArea",
+
+    "./Modal": "./src/components/modal/Modal/Modal",
+    "./ModalBody": "./src/components/modal/ModalBody/ModalBody",
+    "./ModalFooter": "./src/components/modal/ModalFooter/ModalFooter",
+    "./ModalHeader": "./src/components/modal/ModalHeader/ModalHeader",
+
+    "./Popover": "./src/components/popover/Popover/Popover",
+    "./PopoverBody": "./src/components/popover/PopoverBody/PopoverBody",
+    "./PopoverContainer": "./src/components/popover/PopoverContainer/PopoverContainer",
+    "./PopoverHeader": "./src/components/popover/PopoverHeader/PopoverHeader",
+
+    "./Tooltips": "./src/components/tooltip/Tooltips/Tooltips",
+    "./TooltipsContent": "./src/components/tooltip/TooltipsContent/TooltipsContent"
+  }
+}
