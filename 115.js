@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdmf_ui=self.webpackChunkdmf_ui||[]).push([[115],{8115:(e,s,a)=>{a.r(s),a.d(s,{default:()=>r}),a(2950);var c=a(9476),d={name:"1dvcxr3",styles:"padding:1rem"};function r(e){var s=e.children,a=e.className;return(0,c.tZ)("div",{css:d,className:a},s)}}}]);
