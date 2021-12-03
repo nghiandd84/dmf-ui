@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdmf_ui=self.webpackChunkdmf_ui||[]).push([[5760],{5760:(e,t,i)=>{i.r(t),i.d(t,{default:()=>s}),i(2950);var n=i(9476),r={name:"1ywinew",styles:"position:relative;flex:1 1 auto;margin-bottom:1.5rem"};function s(e){var t=e.children;return(0,n.tZ)("div",{css:r},t)}}}]);
