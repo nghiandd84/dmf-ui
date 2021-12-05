@@ -6,7 +6,8 @@ export type Color =
   | 'success'
   | 'danger'
   | 'warning'
-  | 'info';
+  | 'info'
+  | 'none';
 
 export type RippleType = 'dark' | 'light';
 

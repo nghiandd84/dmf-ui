@@ -1,7 +1,8 @@
 {
   "name": "ui",
   "exposes": {
-    "./Label": "./src/components/Label/Label",
+    "./label/Label": "./src/components/label/Label/Label",
+    "./label/ClosingLabel": "./src/components/label/ClosingLabel/ClosingLabel",
     "./Button": "./src/components/Button/Button",
     "./alert/Alert": "./src/components/alert/Alert/Alert",
     "./alert/ClosingAlert": "./src/components/alert/ClosingAlert/ClosingAlert",
@@ -47,6 +48,18 @@
     "./PopoverHeader": "./src/components/popover/PopoverHeader/PopoverHeader",
 
     "./Tooltips": "./src/components/tooltip/Tooltips/Tooltips",
-    "./TooltipsContent": "./src/components/tooltip/TooltipsContent/TooltipsContent"
+    "./TooltipsContent": "./src/components/tooltip/TooltipsContent/TooltipsContent",
+
+    "./nav/Nav": "./src/components/nav/Nav/Nav",
+    "./nav/NavItem": "./src/components/nav/NavItem/NavItem",
+    "./nav/NavLink": "./src/components/nav/NavLink/NavLink",
+
+    "./navbar/Navbar": "./src/components/navbar/Navbar/Navbar",
+    "./navbar/NavbarBrand": "./src/components/navbar/NavbarBrand/NavbarBrand",
+    "./navbar/NavbarCollapse": "./src/components/navbar/NavbarCollapse/NavbarCollapse",
+    "./navbar/NavbarContainer": "./src/components/navbar/NavbarContainer/NavbarContainer",
+    "./navbar/NavbarInput": "./src/components/navbar/NavbarInput/NavbarInput",
+    "./navbar/NavbarToggler": "./src/components/navbar/NavbarToggler/NavbarToggler",
+    "./navbar/NavbarWrapper": "./src/components/navbar/NavbarWrapper/NavbarWrapper"
   }
 }

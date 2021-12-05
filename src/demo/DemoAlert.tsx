@@ -1,6 +1,8 @@
 import React from 'react';
 import Alert from '../components/alert/Alert';
 import ClosingAlert from '../components/alert/ClosingAlert';
+import Label from '../components/label/Label';
+import ClosingLabel from '../components/label/ClosingLabel'
 export const DemoAlert = () => {
   return (
     <>
@@ -12,6 +14,8 @@ export const DemoAlert = () => {
         This is a close alert <br />
         This is a close alert <br />
       </ClosingAlert>
+      <Label>Label</Label>
+      <ClosingLabel>ClosingLabel</ClosingLabel>
     </>
   );
 };
