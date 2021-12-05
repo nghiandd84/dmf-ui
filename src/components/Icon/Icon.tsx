@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from 'react';
-import { BaseSize, Color, TextColor } from '../core/Core';
+import tw from 'twin.macro';
+import { BaseSize, Color } from '../core/Core';
 
 interface Props extends HTMLAttributes<HTMLSpanElement> {
   name: string;
@@ -34,6 +35,15 @@ const sizes = {
   '8xl': 'text-8xl',
   '9xl': 'text-9xl',
 };
+
+export const IconColor = {
+  primary: tw`text-primary-300`,
+  secondary: tw`text-secondary-300`,
+  success: tw`text-success-300`,
+  danger: tw`text-danger-300`,
+  warning: tw`text-warning-300`,
+  info: tw`text-info-300`,
+};
 export default function Icon({
   family = 'material-icons',
   name,
@@ -47,7 +57,7 @@ export default function Icon({
     iconUI = (
       <span
         {...rest}
-        css={[TextColor[color]]}
+        css={[IconColor[color]]}
         className={`${family}  ${
           size ? sizes[size] : 'text-base'
         } leading-none`}
@@ -59,7 +69,7 @@ export default function Icon({
     iconUI = (
       <i
         {...rest}
-        css={[TextColor[color]]}
+        css={[IconColor[color]]}
         className={`${name} ${sizes[size]}`}
       />
     );
@@ -67,7 +77,7 @@ export default function Icon({
     iconUI = (
       <i
         {...rest}
-        css={[TextColor[color]]}
+        css={[IconColor[color]]}
         className={`ri-${name} ${sizes[size]}`}
       />
     );

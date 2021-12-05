@@ -618,3 +618,55 @@ declare module "ui/navbar/NavbarWrapper" {
     };
     export default function NavbarWrapper({ children, className }: Props): JSX.Element;
 }
+declare module "ui/tab/Tab" {
+    import React from 'react';
+    type Props = {
+        className?: string;
+        children: React.ReactNode;
+    };
+    export default function Tab({ children, className }: Props): JSX.Element;
+}
+declare module "ui/tab/TabContent" {
+    import React from 'react';
+    type Props = {
+        children: React.ReactNode;
+    };
+    export default function TabContent({ children }: Props): JSX.Element;
+}
+declare module "ui/tab/TabItem" {
+    import React, { AnchorHTMLAttributes } from 'react';
+    interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+        children: React.ReactNode;
+        className?: string;
+        active?: boolean;
+        ripple?: 'dark' | 'light';
+    }
+    export default function TabItem({ children, active, ripple, className, ...rest }: Props): JSX.Element;
+}
+declare module "ui/tab/TabList" {
+    import React from 'react';
+    import { Color } from "ui/core/Core";
+    type Props = {
+        children: React.ReactNode;
+        className?: string;
+        color?: Color;
+    };
+    export const shadowColors: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
+    export default function TabList({ children, color, className }: Props): JSX.Element;
+}
+declare module "ui/tab/TabPane" {
+    import React from 'react';
+    type Props = {
+        children: React.ReactNode;
+        className?: string;
+        active?: boolean;
+    };
+    export default function TabPane({ children, active, className, }: Props): JSX.Element;
+}

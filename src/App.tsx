@@ -54,7 +54,7 @@ const App = () => {
             </li>
             <li>
               <NavLink css={[linkTw]} to="/nav">
-                Nav
+                Nav & Tab
               </NavLink>
             </li>
           </ul>

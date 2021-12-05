@@ -60,6 +60,12 @@
     "./navbar/NavbarContainer": "./src/components/navbar/NavbarContainer/NavbarContainer",
     "./navbar/NavbarInput": "./src/components/navbar/NavbarInput/NavbarInput",
     "./navbar/NavbarToggler": "./src/components/navbar/NavbarToggler/NavbarToggler",
-    "./navbar/NavbarWrapper": "./src/components/navbar/NavbarWrapper/NavbarWrapper"
+    "./navbar/NavbarWrapper": "./src/components/navbar/NavbarWrapper/NavbarWrapper",
+
+    "./tab/Tab": "./src/components/tab/Tab/Tab",
+    "./tab/TabContent": "./src/components/tab/TabContent/TabContent",
+    "./tab/TabItem": "./src/components/tab/TabItem/TabItem",
+    "./tab/TabList": "./src/components/tab/TabList/TabList",
+    "./tab/TabPane": "./src/components/tab/TabPane/TabPane"
   }
 }
