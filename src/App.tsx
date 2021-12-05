@@ -10,56 +10,42 @@ import { DemoTypography } from './demo/DemoTypography';
 import { DemoModal } from './demo/DemoModal';
 
 const App = () => {
-  const linkTw = tw`text-xl text-indigo-600 no-underline hover:underline`
+  const linkTw = tw`text-xl text-indigo-600 no-underline hover:underline`;
+  const baseName = process.env.baseName || '/';
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={baseName}>
       <div tw="mx-auto mt-10 mx-10 my-10">
         <Routes>
-          <Route path="/form" element={<DemoForm />} />
-          <Route path="/alert" element={<DemoAlert />} />
-          <Route path="/card" element={<DemoCard />} />
-          <Route path="/typography" element={<DemoTypography />} />
-          <Route path="/modal" element={<DemoModal />} />
+          <Route path="form" element={<DemoForm />} />
+          <Route path="alert" element={<DemoAlert />} />
+          <Route path="card" element={<DemoCard />} />
+          <Route path="typography" element={<DemoTypography />} />
+          <Route path="modal" element={<DemoModal />} />
         </Routes>
         <div tw="my-10">
           <ul>
             <li>
-              <NavLink
-                css={[linkTw]}
-                to="/form"
-              >
+              <NavLink css={[linkTw]} to="/form">
                 Form
               </NavLink>
             </li>
             <li>
-              <NavLink
-                css={[linkTw]}
-                to="/alert"
-              >
+              <NavLink css={[linkTw]} to="/alert">
                 Alert
               </NavLink>
             </li>
             <li>
-              <NavLink
-                css={[linkTw]}
-                to="/card"
-              >
+              <NavLink css={[linkTw]} to="/card">
                 Card
               </NavLink>
             </li>
             <li>
-              <NavLink
-                css={[linkTw]}
-                to="/typography"
-              >
+              <NavLink css={[linkTw]} to="/typography">
                 Typography
               </NavLink>
             </li>
             <li>
-              <NavLink
-                css={[linkTw]}
-                to="/modal"
-              >
+              <NavLink css={[linkTw]} to="/modal">
                 Modal
               </NavLink>
             </li>
