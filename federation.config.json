@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "dmf_ui",
   "exposes": {
     "./label/Label": "./src/components/label/Label/Label",
     "./label/ClosingLabel": "./src/components/label/ClosingLabel/ClosingLabel",

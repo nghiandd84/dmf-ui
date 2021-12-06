@@ -8,7 +8,7 @@
     "build:start": "http-server ./dist -p 2000",
     "start": "webpack serve --open --mode development --env env=local",
     "start:live": "webpack serve --open --mode development --live-reload --hot",
-    "make-types": "make-federated-types --outputDir ./dist/@types && cp ./dist/@types/ui.d.ts ../@remote-types",
+    "make-types": "make-federated-types --outputDir ./dist/@types && cp ./dist/@types/dmf_ui.d.ts ../dmf-type",
     "deploy:git": "gh-pages -d dist"
   },
   "license": "MIT",
