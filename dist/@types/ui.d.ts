@@ -670,3 +670,30 @@ declare module "ui/tab/TabPane" {
     };
     export default function TabPane({ children, active, className, }: Props): JSX.Element;
 }
+declare module "ui/Progress" {
+    import { Color } from "ui/core/Core";
+    type Props = {
+        value: number;
+        percentage?: boolean;
+        color?: Color;
+    };
+    export default function Progress({ color, value, percentage, }: Props): JSX.Element;
+}
+declare module "ui/pagination/Pagination" {
+    import React from 'react';
+    type Props = {
+        children: React.ReactNode;
+    };
+    export default function Pagination({ children }: Props): JSX.Element;
+}
+declare module "ui/pagination/PaginationItem" {
+    import React, { AnchorHTMLAttributes } from 'react';
+    import { Color, RippleType } from "ui/core/Core";
+    interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+        color?: Color;
+        ripple?: RippleType;
+        button?: boolean;
+        children: React.ReactNode;
+    }
+    export default function PaginationItem({ children, color, button, ripple, className, ...rest }: Props): JSX.Element;
+}

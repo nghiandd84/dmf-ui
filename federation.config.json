@@ -66,6 +66,10 @@
     "./tab/TabContent": "./src/components/tab/TabContent/TabContent",
     "./tab/TabItem": "./src/components/tab/TabItem/TabItem",
     "./tab/TabList": "./src/components/tab/TabList/TabList",
-    "./tab/TabPane": "./src/components/tab/TabPane/TabPane"
+    "./tab/TabPane": "./src/components/tab/TabPane/TabPane",
+
+    "./Progress": "./src/components/Progress/Progress",
+    "./pagination/Pagination": "./src/components/pagination/Pagination/Pagination",
+    "./pagination/PaginationItem": "./src/components/pagination/PaginationItem/PaginationItem"
   }
 }

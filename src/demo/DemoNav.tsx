@@ -18,6 +18,10 @@ import TabContent from '../components/tab/TabContent';
 import TabItem from '../components/tab/TabItem';
 import TabList from '../components/tab/TabList';
 import TabPane from '../components/tab/TabPane';
+
+import Pagination from '../components/pagination/Pagination';
+import PaginationItem from '../components/pagination/PaginationItem';
+import Progress from '../components/Progress';
 export const DemoNav = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openTab, setOpenTab] = useState(1);
@@ -132,6 +136,34 @@ export const DemoNav = () => {
             </TabPane>
           </TabContent>
         </Tab>
+      </div>
+      <div>
+        <Progress value={50} percentage={true} />
+      </div>
+      <div>
+        <Pagination>
+          <PaginationItem href="#last" ripple="dark">
+            <Icon name="keyboard_arrow_left" />
+          </PaginationItem>
+          <PaginationItem href="#1" ripple="light">
+            1
+          </PaginationItem>
+          <PaginationItem color="primary" href="#2" ripple="dark">
+            2
+          </PaginationItem>
+          <PaginationItem href="#3" ripple="dark">
+            3
+          </PaginationItem>
+          <PaginationItem href="#4" ripple="dark">
+            4
+          </PaginationItem>
+          <PaginationItem href="#5" ripple="dark">
+            5
+          </PaginationItem>
+          <PaginationItem href="#last" ripple="dark">
+            <Icon name="keyboard_arrow_right" />
+          </PaginationItem>
+        </Pagination>
       </div>
     </>
   );
