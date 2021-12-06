@@ -1,12 +1,130 @@
 /// <reference types="react" />
-declare module "ui/Label" {
-    import { FunctionComponent } from "react";
+declare module "ui/core/Core" {
+    export type Color = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'none';
+    export type RippleType = 'dark' | 'light';
+    export type BaseSize = 'sm' | 'base' | 'lg';
+    export type VariationPlacement = "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end";
+    export type AutoPlacement = "auto" | "auto-start" | "auto-end";
+    export type BasePlacement = "top" | "bottom" | "right" | "left";
+    export type Placement = AutoPlacement | BasePlacement | VariationPlacement;
+    export const TextColor: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
+    export const Border: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
+    export const Bg: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
+    export const FocusBg: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
+    export const HoverBg: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+        none: import("twin.macro").TwStyle;
+    };
+    export const OutlineHoverBg: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
+    export const ActiveBg: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
+    export const OutlineActiveBg: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
+    export const HoverShadowLgBg: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
+    export const OutlineHoverBorder: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
+    export const TextHoverColor: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
+}
+declare module "ui/label/Label" {
+    import React, { FunctionComponent } from 'react';
+    import { Color } from "ui/core/Core";
+    export const TextColor: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
     type Props = {
-        color?: string;
+        color?: Color;
         className?: string;
+        children: React.ReactNode;
     };
     const Label: FunctionComponent<Props>;
     export default Label;
+}
+declare module "ui/label/ClosingLabel" {
+    import React from 'react';
+    import { Color } from "ui/core/Core";
+    type Props = {
+        color?: Color;
+        className?: string;
+        children: React.ReactNode;
+    };
+    export default function ClosingLabel({ children, color, className, }: Props): JSX.Element;
 }
 declare module "ui/Button" {
     import React from 'react';
@@ -107,104 +225,6 @@ declare module "ui/card/CardStatus" {
         children: React.ReactNode;
     };
     export default function CardStatus({ title, amount, className }: Props): JSX.Element;
-}
-declare module "ui/core/Core" {
-    export type Color = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
-    export type RippleType = 'dark' | 'light';
-    export type BaseSize = 'sm' | 'base' | 'lg';
-    export type VariationPlacement = "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end";
-    export type AutoPlacement = "auto" | "auto-start" | "auto-end";
-    export type BasePlacement = "top" | "bottom" | "right" | "left";
-    export type Placement = AutoPlacement | BasePlacement | VariationPlacement;
-    export const TextColor: {
-        primary: import("twin.macro").TwStyle;
-        secondary: import("twin.macro").TwStyle;
-        success: import("twin.macro").TwStyle;
-        danger: import("twin.macro").TwStyle;
-        warning: import("twin.macro").TwStyle;
-        info: import("twin.macro").TwStyle;
-    };
-    export const Border: {
-        primary: import("twin.macro").TwStyle;
-        secondary: import("twin.macro").TwStyle;
-        success: import("twin.macro").TwStyle;
-        danger: import("twin.macro").TwStyle;
-        warning: import("twin.macro").TwStyle;
-        info: import("twin.macro").TwStyle;
-    };
-    export const Bg: {
-        primary: import("twin.macro").TwStyle;
-        secondary: import("twin.macro").TwStyle;
-        success: import("twin.macro").TwStyle;
-        danger: import("twin.macro").TwStyle;
-        warning: import("twin.macro").TwStyle;
-        info: import("twin.macro").TwStyle;
-    };
-    export const FocusBg: {
-        primary: import("twin.macro").TwStyle;
-        secondary: import("twin.macro").TwStyle;
-        success: import("twin.macro").TwStyle;
-        danger: import("twin.macro").TwStyle;
-        warning: import("twin.macro").TwStyle;
-        info: import("twin.macro").TwStyle;
-    };
-    export const HoverBg: {
-        primary: import("twin.macro").TwStyle;
-        secondary: import("twin.macro").TwStyle;
-        success: import("twin.macro").TwStyle;
-        danger: import("twin.macro").TwStyle;
-        warning: import("twin.macro").TwStyle;
-        info: import("twin.macro").TwStyle;
-        none: import("twin.macro").TwStyle;
-    };
-    export const OutlineHoverBg: {
-        primary: import("twin.macro").TwStyle;
-        secondary: import("twin.macro").TwStyle;
-        success: import("twin.macro").TwStyle;
-        danger: import("twin.macro").TwStyle;
-        warning: import("twin.macro").TwStyle;
-        info: import("twin.macro").TwStyle;
-    };
-    export const ActiveBg: {
-        primary: import("twin.macro").TwStyle;
-        secondary: import("twin.macro").TwStyle;
-        success: import("twin.macro").TwStyle;
-        danger: import("twin.macro").TwStyle;
-        warning: import("twin.macro").TwStyle;
-        info: import("twin.macro").TwStyle;
-    };
-    export const OutlineActiveBg: {
-        primary: import("twin.macro").TwStyle;
-        secondary: import("twin.macro").TwStyle;
-        success: import("twin.macro").TwStyle;
-        danger: import("twin.macro").TwStyle;
-        warning: import("twin.macro").TwStyle;
-        info: import("twin.macro").TwStyle;
-    };
-    export const HoverShadowLgBg: {
-        primary: import("twin.macro").TwStyle;
-        secondary: import("twin.macro").TwStyle;
-        success: import("twin.macro").TwStyle;
-        danger: import("twin.macro").TwStyle;
-        warning: import("twin.macro").TwStyle;
-        info: import("twin.macro").TwStyle;
-    };
-    export const OutlineHoverBorder: {
-        primary: import("twin.macro").TwStyle;
-        secondary: import("twin.macro").TwStyle;
-        success: import("twin.macro").TwStyle;
-        danger: import("twin.macro").TwStyle;
-        warning: import("twin.macro").TwStyle;
-        info: import("twin.macro").TwStyle;
-    };
-    export const TextHoverColor: {
-        primary: import("twin.macro").TwStyle;
-        secondary: import("twin.macro").TwStyle;
-        success: import("twin.macro").TwStyle;
-        danger: import("twin.macro").TwStyle;
-        warning: import("twin.macro").TwStyle;
-        info: import("twin.macro").TwStyle;
-    };
 }
 declare module "ui/card/CardStatusFooter" {
     import React from 'react';
@@ -461,6 +481,14 @@ declare module "ui/Popover" {
     const Popover: React.ForwardRefExoticComponent<Props & React.RefAttributes<HTMLElement>>;
     export default Popover;
 }
+declare module "ui/PopoverBody" {
+    import React from 'react';
+    type Props = {
+        children: React.ReactNode;
+        className?: string;
+    };
+    export default function PopoverBody({ children, className }: Props): JSX.Element;
+}
 declare module "ui/PopoverContainer" {
     import React from 'react';
     type Props = {
@@ -476,4 +504,196 @@ declare module "ui/PopoverHeader" {
         className?: string;
     };
     export default function PopoverHeader({ children, className }: Props): JSX.Element;
+}
+declare module "ui/Tooltips" {
+    import React from 'react';
+    import { Placement } from "ui/core/Core";
+    type Props = {
+        children: React.ReactNode;
+        placement?: Placement;
+        className?: string;
+    };
+    const Tooltips: React.ForwardRefExoticComponent<Props & React.RefAttributes<HTMLElement>>;
+    export default Tooltips;
+}
+declare module "ui/TooltipsContent" {
+    import React from 'react';
+    type Props = {
+        children: React.ReactNode;
+        className?: string;
+    };
+    export default function TooltipsContent({ children, className }: Props): JSX.Element;
+}
+declare module "ui/nav/Nav" {
+    import React from 'react';
+    type Props = {
+        leftSide: boolean;
+        className?: string;
+        children: React.ReactNode;
+    };
+    export default function Nav({ children, leftSide, className, }: Props): JSX.Element;
+}
+declare module "ui/nav/NavItem" {
+    import React, { LiHTMLAttributes } from 'react';
+    interface Props extends LiHTMLAttributes<HTMLLIElement> {
+        active?: boolean;
+        ripple?: string;
+        className?: string;
+        children?: React.ReactNode;
+    }
+    export default function NavItem({ children, active, ripple, className, ...rest }: Props): JSX.Element;
+}
+declare module "ui/nav/NavLink" {
+    import React, { AnchorHTMLAttributes } from 'react';
+    interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+        active?: boolean;
+        ripple?: 'dark' | 'light';
+        className?: string;
+        children: React.ReactNode;
+    }
+    export default function NavLink({ children, active, ripple, className, ...rest }: Props): JSX.Element;
+}
+declare module "ui/navbar/Navbar" {
+    import React from 'react';
+    import { Color } from "ui/core/Core";
+    type Props = {
+        color?: Color;
+        navbar?: boolean;
+        className?: string;
+        children: React.ReactNode;
+    };
+    export default function Navbar({ children, color, navbar, className, }: Props): JSX.Element;
+}
+declare module "ui/navbar/NavbarBrand" {
+    import React from 'react';
+    import { Color } from "ui/core/Core";
+    type Props = {
+        color?: Color;
+        className?: string;
+        children: React.ReactNode;
+    };
+    export default function NavbarBrand({ children, className, color }: Props): JSX.Element;
+}
+declare module "ui/navbar/NavbarCollapse" {
+    import React from 'react';
+    type Props = {
+        open: boolean;
+        className?: string;
+        children: React.ReactNode;
+    };
+    export default function NavbarCollapse({ children, className, open, }: Props): JSX.Element;
+}
+declare module "ui/navbar/NavbarContainer" {
+    import React from 'react';
+    type Props = {
+        className?: string;
+        children: React.ReactNode;
+    };
+    export default function NavbarContainer({ children, className }: Props): JSX.Element;
+}
+declare module "ui/navbar/NavbarInput" {
+    import { InputHTMLAttributes } from 'react';
+    interface Props extends InputHTMLAttributes<HTMLInputElement> {
+        fontAwesome?: boolean;
+        className?: string;
+    }
+    export default function NavbarInput({ fontAwesome, ...rest }: Props): JSX.Element;
+}
+declare module "ui/navbar/NavbarToggler" {
+    import React, { ButtonHTMLAttributes } from 'react';
+    import { Color } from "ui/core/Core";
+    interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+        color: Color;
+        ripple: 'dark' | 'light';
+        className?: string;
+        children?: React.ReactNode;
+    }
+    export default function NavbarToggler({ color, ripple, className, ...rest }: Props): JSX.Element;
+}
+declare module "ui/navbar/NavbarWrapper" {
+    import React from 'react';
+    type Props = {
+        className?: string;
+        children: React.ReactNode;
+    };
+    export default function NavbarWrapper({ children, className }: Props): JSX.Element;
+}
+declare module "ui/tab/Tab" {
+    import React from 'react';
+    type Props = {
+        className?: string;
+        children: React.ReactNode;
+    };
+    export default function Tab({ children, className }: Props): JSX.Element;
+}
+declare module "ui/tab/TabContent" {
+    import React from 'react';
+    type Props = {
+        children: React.ReactNode;
+    };
+    export default function TabContent({ children }: Props): JSX.Element;
+}
+declare module "ui/tab/TabItem" {
+    import React, { AnchorHTMLAttributes } from 'react';
+    interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+        children: React.ReactNode;
+        className?: string;
+        active?: boolean;
+        ripple?: 'dark' | 'light';
+    }
+    export default function TabItem({ children, active, ripple, className, ...rest }: Props): JSX.Element;
+}
+declare module "ui/tab/TabList" {
+    import React from 'react';
+    import { Color } from "ui/core/Core";
+    type Props = {
+        children: React.ReactNode;
+        className?: string;
+        color?: Color;
+    };
+    export const shadowColors: {
+        primary: import("twin.macro").TwStyle;
+        secondary: import("twin.macro").TwStyle;
+        success: import("twin.macro").TwStyle;
+        danger: import("twin.macro").TwStyle;
+        warning: import("twin.macro").TwStyle;
+        info: import("twin.macro").TwStyle;
+    };
+    export default function TabList({ children, color, className }: Props): JSX.Element;
+}
+declare module "ui/tab/TabPane" {
+    import React from 'react';
+    type Props = {
+        children: React.ReactNode;
+        className?: string;
+        active?: boolean;
+    };
+    export default function TabPane({ children, active, className, }: Props): JSX.Element;
+}
+declare module "ui/Progress" {
+    import { Color } from "ui/core/Core";
+    type Props = {
+        value: number;
+        percentage?: boolean;
+        color?: Color;
+    };
+    export default function Progress({ color, value, percentage, }: Props): JSX.Element;
+}
+declare module "ui/pagination/Pagination" {
+    import React from 'react';
+    type Props = {
+        children: React.ReactNode;
+    };
+    export default function Pagination({ children }: Props): JSX.Element;
+}
+declare module "ui/pagination/PaginationItem" {
+    import React, { AnchorHTMLAttributes } from 'react';
+    import { Color, RippleType } from "ui/core/Core";
+    interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+        color?: Color;
+        ripple?: RippleType;
+        button?: boolean;
+        children: React.ReactNode;
+    }
+    export default function PaginationItem({ children, color, button, ripple, className, ...rest }: Props): JSX.Element;
 }

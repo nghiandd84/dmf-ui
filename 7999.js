@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdmf_ui=self.webpackChunkdmf_ui||[]).push([[7999],{7999:(c,a,e)=>{e.r(a),e.d(a,{default:()=>i}),e(2950);var d=e(9476);function i(c){var a=c.children,e=c.active,i=void 0!==e&&e,n=c.className,s=void 0===n?"":n;return(0,d.tZ)("div",{className:"".concat(i?"block":"hidden"," ").concat(s)},a)}}}]);
