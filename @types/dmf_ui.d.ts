@@ -1,5 +1,5 @@
 /// <reference types="react" />
-declare module "ui/core/Core" {
+declare module "dmf_ui/core/Core" {
     export type Color = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'none';
     export type RippleType = 'dark' | 'light';
     export type BaseSize = 'sm' | 'base' | 'lg';
@@ -97,9 +97,9 @@ declare module "ui/core/Core" {
         info: import("twin.macro").TwStyle;
     };
 }
-declare module "ui/label/Label" {
+declare module "dmf_ui/label/Label" {
     import React, { FunctionComponent } from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     export const TextColor: {
         primary: import("twin.macro").TwStyle;
         secondary: import("twin.macro").TwStyle;
@@ -116,9 +116,9 @@ declare module "ui/label/Label" {
     const Label: FunctionComponent<Props>;
     export default Label;
 }
-declare module "ui/label/ClosingLabel" {
+declare module "dmf_ui/label/ClosingLabel" {
     import React from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         color?: Color;
         className?: string;
@@ -126,7 +126,7 @@ declare module "ui/label/ClosingLabel" {
     };
     export default function ClosingLabel({ children, color, className, }: Props): JSX.Element;
 }
-declare module "ui/Button" {
+declare module "dmf_ui/Button" {
     import React from 'react';
     type Props = {
         buttonType?: 'fill' | 'outline' | 'link';
@@ -143,7 +143,7 @@ declare module "ui/Button" {
     const Button: React.ForwardRefExoticComponent<Props & React.RefAttributes<any>>;
     export default Button;
 }
-declare module "ui/alert/Alert" {
+declare module "dmf_ui/alert/Alert" {
     import React from 'react';
     type Props = {
         color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
@@ -152,7 +152,7 @@ declare module "ui/alert/Alert" {
     };
     export default function Alert({ children, color, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/alert/ClosingAlert" {
+declare module "dmf_ui/alert/ClosingAlert" {
     import React from 'react';
     type Props = {
         color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
@@ -162,7 +162,7 @@ declare module "ui/alert/ClosingAlert" {
     };
     export default function ClosingAlert({ children, color, duration, ...rest }: Props): JSX.Element;
 }
-declare module "ui/card/Card" {
+declare module "dmf_ui/card/Card" {
     import React from 'react';
     type Props = {
         className?: string;
@@ -170,7 +170,7 @@ declare module "ui/card/Card" {
     };
     export default function Card({ children, className }: Props): JSX.Element;
 }
-declare module "ui/card/CardBody" {
+declare module "dmf_ui/card/CardBody" {
     import React from 'react';
     type Props = {
         className?: string;
@@ -178,7 +178,7 @@ declare module "ui/card/CardBody" {
     };
     export default function CardBody({ children, className }: Props): JSX.Element;
 }
-declare module "ui/card/CardFooter" {
+declare module "dmf_ui/card/CardFooter" {
     import React from 'react';
     type Props = {
         className?: string;
@@ -186,7 +186,7 @@ declare module "ui/card/CardFooter" {
     };
     export default function CardFooter({ children, className }: Props): JSX.Element;
 }
-declare module "ui/card/CardHeader" {
+declare module "dmf_ui/card/CardHeader" {
     import React from 'react';
     type Props = {
         color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
@@ -198,7 +198,7 @@ declare module "ui/card/CardHeader" {
     };
     export default function CardHeader({ children, color, size, position, iconOnly, className, }: Props): JSX.Element;
 }
-declare module "ui/card/CardImage" {
+declare module "dmf_ui/card/CardImage" {
     import React from 'react';
     type Props = {
         src: string;
@@ -208,7 +208,7 @@ declare module "ui/card/CardImage" {
     };
     export default function CardImage({ src, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/card/CardRow" {
+declare module "dmf_ui/card/CardRow" {
     import React from 'react';
     type Props = {
         className?: string;
@@ -216,7 +216,7 @@ declare module "ui/card/CardRow" {
     };
     export default function CardRow({ children, className }: Props): JSX.Element;
 }
-declare module "ui/card/CardStatus" {
+declare module "dmf_ui/card/CardStatus" {
     import React from 'react';
     type Props = {
         title: string;
@@ -226,7 +226,7 @@ declare module "ui/card/CardStatus" {
     };
     export default function CardStatus({ title, amount, className }: Props): JSX.Element;
 }
-declare module "ui/card/CardStatusFooter" {
+declare module "dmf_ui/card/CardStatusFooter" {
     import React from 'react';
     type Props = {
         color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
@@ -238,9 +238,9 @@ declare module "ui/card/CardStatusFooter" {
     };
     export default function CardStatusFooter({ children, color, amount, date, className, }: Props): JSX.Element;
 }
-declare module "ui/typography/H1" {
+declare module "dmf_ui/typography/H1" {
     import React from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         color?: Color;
         className?: string;
@@ -249,9 +249,9 @@ declare module "ui/typography/H1" {
     };
     export default function H1({ children, color, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/typography/H2" {
+declare module "dmf_ui/typography/H2" {
     import React from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         color?: Color;
         className?: string;
@@ -260,9 +260,9 @@ declare module "ui/typography/H2" {
     };
     export default function H2({ children, color, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/typography/H3" {
+declare module "dmf_ui/typography/H3" {
     import React from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         color?: Color;
         className?: string;
@@ -271,9 +271,9 @@ declare module "ui/typography/H3" {
     };
     export default function H3({ children, color, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/typography/H4" {
+declare module "dmf_ui/typography/H4" {
     import React from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         color?: Color;
         className?: string;
@@ -282,9 +282,9 @@ declare module "ui/typography/H4" {
     };
     export default function H4({ children, color, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/typography/H5" {
+declare module "dmf_ui/typography/H5" {
     import React from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         color?: Color;
         className?: string;
@@ -293,9 +293,9 @@ declare module "ui/typography/H5" {
     };
     export default function H5({ children, color, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/typography/H6" {
+declare module "dmf_ui/typography/H6" {
     import React from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         color?: Color;
         className?: string;
@@ -304,9 +304,9 @@ declare module "ui/typography/H6" {
     };
     export default function H6({ children, color, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/typography/LeadText" {
+declare module "dmf_ui/typography/LeadText" {
     import React from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         color?: Color;
         className?: string;
@@ -315,9 +315,9 @@ declare module "ui/typography/LeadText" {
     };
     export default function LeadText({ children, color, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/typography/Paragraph" {
+declare module "dmf_ui/typography/Paragraph" {
     import React from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         color?: Color;
         className?: string;
@@ -326,7 +326,7 @@ declare module "ui/typography/Paragraph" {
     };
     export default function Paragraph({ children, color, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/typography/Quote" {
+declare module "dmf_ui/typography/Quote" {
     import React from 'react';
     type Props = {
         color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
@@ -338,7 +338,7 @@ declare module "ui/typography/Quote" {
     };
     export default function Quote({ children, color, footer, cite, ...rest }: Props): JSX.Element;
 }
-declare module "ui/typography/Small" {
+declare module "dmf_ui/typography/Small" {
     import React from 'react';
     type Props = {
         color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
@@ -347,18 +347,18 @@ declare module "ui/typography/Small" {
     };
     export default function Small({ children, color, ...rest }: Props): JSX.Element;
 }
-declare module "ui/Checkbox" {
+declare module "dmf_ui/Checkbox" {
     import { InputHTMLAttributes } from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     interface Props extends InputHTMLAttributes<HTMLInputElement> {
         text: string;
         color?: Color;
     }
     export default function Checkbox({ color, text, id, ...rest }: Props): JSX.Element;
 }
-declare module "ui/Radio" {
+declare module "dmf_ui/Radio" {
     import { OptionHTMLAttributes } from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     interface Props extends OptionHTMLAttributes<HTMLOptionElement> {
         text: string;
         name: string;
@@ -366,9 +366,9 @@ declare module "ui/Radio" {
     }
     export default function Radio({ color, text, id, name, ...rest }: Props): JSX.Element;
 }
-declare module "ui/Dropdown" {
+declare module "dmf_ui/Dropdown" {
     import { ButtonHTMLAttributes } from 'react';
-    import { Color, Placement, RippleType, BaseSize } from "ui/core/Core";
+    import { Color, Placement, RippleType, BaseSize } from "dmf_ui/core/Core";
     interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
         buttonText: string;
         buttonType?: 'outline' | 'link' | 'fill';
@@ -381,25 +381,25 @@ declare module "ui/Dropdown" {
     }
     export default function Dropdown({ children, buttonText, color, buttonType, size, placement, rounded, block, ripple, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/DropdownItem" {
+declare module "dmf_ui/DropdownItem" {
     import { HTMLAttributes } from 'react';
-    import { Color, RippleType } from "ui/core/Core";
+    import { Color, RippleType } from "dmf_ui/core/Core";
     interface Props extends HTMLAttributes<HTMLSpanElement> {
         color?: Color;
         ripple?: RippleType;
     }
     export default function DropdownItem({ children, color, ripple, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/DropdownLink" {
+declare module "dmf_ui/DropdownLink" {
     import { AnchorHTMLAttributes } from 'react';
-    import { Color, RippleType } from "ui/core/Core";
+    import { Color, RippleType } from "dmf_ui/core/Core";
     interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
         color?: Color;
         ripple?: RippleType;
     }
     export default function DropdownLink({ children, color, ripple, ...rest }: Props): JSX.Element;
 }
-declare module "ui/Image" {
+declare module "dmf_ui/Image" {
     import { ImgHTMLAttributes } from 'react';
     interface Props extends ImgHTMLAttributes<HTMLImageElement> {
         src: string;
@@ -408,9 +408,9 @@ declare module "ui/Image" {
     }
     export default function Image({ src, raised, rounded, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/Input" {
+declare module "dmf_ui/Input" {
     import { InputHTMLAttributes } from 'react';
-    import { Color, BaseSize } from "ui/core/Core";
+    import { Color, BaseSize } from "dmf_ui/core/Core";
     interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
         placeholder: string;
         color?: Color;
@@ -423,9 +423,9 @@ declare module "ui/Input" {
     }
     export default function Input({ placeholder, color, size, outline, error, success, iconFamily, iconName, ...rest }: Props): JSX.Element;
 }
-declare module "ui/TextArea" {
+declare module "dmf_ui/TextArea" {
     import { TextareaHTMLAttributes } from 'react';
-    import { Color, BaseSize } from "ui/core/Core";
+    import { Color, BaseSize } from "dmf_ui/core/Core";
     interface Props extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> {
         placeholder: string;
         color?: Color;
@@ -436,9 +436,9 @@ declare module "ui/TextArea" {
     }
     export default function TextArea({ placeholder, color, size, outline, error, success, ...rest }: Props): JSX.Element;
 }
-declare module "ui/Modal" {
+declare module "dmf_ui/Modal" {
     import React from 'react';
-    import { BaseSize } from "ui/core/Core";
+    import { BaseSize } from "dmf_ui/core/Core";
     type Props = {
         children: React.ReactNode;
         size?: BaseSize;
@@ -448,21 +448,21 @@ declare module "ui/Modal" {
     };
     export default function Modal({ children, size, active, className, toggler, }: Props): JSX.Element;
 }
-declare module "ui/ModalBody" {
+declare module "dmf_ui/ModalBody" {
     import React from 'react';
     type Props = {
         children: React.ReactNode;
     };
     export default function ModalBody({ children }: Props): JSX.Element;
 }
-declare module "ui/ModalFooter" {
+declare module "dmf_ui/ModalFooter" {
     import React from 'react';
     type Props = {
         children?: React.ReactNode;
     };
     export default function ModalFooter({ children }: Props): JSX.Element;
 }
-declare module "ui/ModalHeader" {
+declare module "dmf_ui/ModalHeader" {
     import React from 'react';
     type Props = {
         children?: React.ReactNode;
@@ -470,9 +470,9 @@ declare module "ui/ModalHeader" {
     };
     export default function ModalHeader({ children, toggler }: Props): JSX.Element;
 }
-declare module "ui/Popover" {
+declare module "dmf_ui/Popover" {
     import React from 'react';
-    import { Placement } from "ui/core/Core";
+    import { Placement } from "dmf_ui/core/Core";
     type Props = {
         children: React.ReactNode;
         className?: string;
@@ -481,7 +481,7 @@ declare module "ui/Popover" {
     const Popover: React.ForwardRefExoticComponent<Props & React.RefAttributes<HTMLElement>>;
     export default Popover;
 }
-declare module "ui/PopoverBody" {
+declare module "dmf_ui/PopoverBody" {
     import React from 'react';
     type Props = {
         children: React.ReactNode;
@@ -489,7 +489,7 @@ declare module "ui/PopoverBody" {
     };
     export default function PopoverBody({ children, className }: Props): JSX.Element;
 }
-declare module "ui/PopoverContainer" {
+declare module "dmf_ui/PopoverContainer" {
     import React from 'react';
     type Props = {
         children: React.ReactNode;
@@ -497,7 +497,7 @@ declare module "ui/PopoverContainer" {
     };
     export default function PopoverContainer({ children, className }: Props): JSX.Element;
 }
-declare module "ui/PopoverHeader" {
+declare module "dmf_ui/PopoverHeader" {
     import React from 'react';
     type Props = {
         children: React.ReactNode;
@@ -505,9 +505,9 @@ declare module "ui/PopoverHeader" {
     };
     export default function PopoverHeader({ children, className }: Props): JSX.Element;
 }
-declare module "ui/Tooltips" {
+declare module "dmf_ui/Tooltips" {
     import React from 'react';
-    import { Placement } from "ui/core/Core";
+    import { Placement } from "dmf_ui/core/Core";
     type Props = {
         children: React.ReactNode;
         placement?: Placement;
@@ -516,7 +516,7 @@ declare module "ui/Tooltips" {
     const Tooltips: React.ForwardRefExoticComponent<Props & React.RefAttributes<HTMLElement>>;
     export default Tooltips;
 }
-declare module "ui/TooltipsContent" {
+declare module "dmf_ui/TooltipsContent" {
     import React from 'react';
     type Props = {
         children: React.ReactNode;
@@ -524,7 +524,7 @@ declare module "ui/TooltipsContent" {
     };
     export default function TooltipsContent({ children, className }: Props): JSX.Element;
 }
-declare module "ui/nav/Nav" {
+declare module "dmf_ui/nav/Nav" {
     import React from 'react';
     type Props = {
         leftSide: boolean;
@@ -533,7 +533,7 @@ declare module "ui/nav/Nav" {
     };
     export default function Nav({ children, leftSide, className, }: Props): JSX.Element;
 }
-declare module "ui/nav/NavItem" {
+declare module "dmf_ui/nav/NavItem" {
     import React, { LiHTMLAttributes } from 'react';
     interface Props extends LiHTMLAttributes<HTMLLIElement> {
         active?: boolean;
@@ -543,7 +543,7 @@ declare module "ui/nav/NavItem" {
     }
     export default function NavItem({ children, active, ripple, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/nav/NavLink" {
+declare module "dmf_ui/nav/NavLink" {
     import React, { AnchorHTMLAttributes } from 'react';
     interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
         active?: boolean;
@@ -553,9 +553,9 @@ declare module "ui/nav/NavLink" {
     }
     export default function NavLink({ children, active, ripple, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/navbar/Navbar" {
+declare module "dmf_ui/navbar/Navbar" {
     import React from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         color?: Color;
         navbar?: boolean;
@@ -564,9 +564,9 @@ declare module "ui/navbar/Navbar" {
     };
     export default function Navbar({ children, color, navbar, className, }: Props): JSX.Element;
 }
-declare module "ui/navbar/NavbarBrand" {
+declare module "dmf_ui/navbar/NavbarBrand" {
     import React from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         color?: Color;
         className?: string;
@@ -574,7 +574,7 @@ declare module "ui/navbar/NavbarBrand" {
     };
     export default function NavbarBrand({ children, className, color }: Props): JSX.Element;
 }
-declare module "ui/navbar/NavbarCollapse" {
+declare module "dmf_ui/navbar/NavbarCollapse" {
     import React from 'react';
     type Props = {
         open: boolean;
@@ -583,7 +583,7 @@ declare module "ui/navbar/NavbarCollapse" {
     };
     export default function NavbarCollapse({ children, className, open, }: Props): JSX.Element;
 }
-declare module "ui/navbar/NavbarContainer" {
+declare module "dmf_ui/navbar/NavbarContainer" {
     import React from 'react';
     type Props = {
         className?: string;
@@ -591,7 +591,7 @@ declare module "ui/navbar/NavbarContainer" {
     };
     export default function NavbarContainer({ children, className }: Props): JSX.Element;
 }
-declare module "ui/navbar/NavbarInput" {
+declare module "dmf_ui/navbar/NavbarInput" {
     import { InputHTMLAttributes } from 'react';
     interface Props extends InputHTMLAttributes<HTMLInputElement> {
         fontAwesome?: boolean;
@@ -599,9 +599,9 @@ declare module "ui/navbar/NavbarInput" {
     }
     export default function NavbarInput({ fontAwesome, ...rest }: Props): JSX.Element;
 }
-declare module "ui/navbar/NavbarToggler" {
+declare module "dmf_ui/navbar/NavbarToggler" {
     import React, { ButtonHTMLAttributes } from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
         color: Color;
         ripple: 'dark' | 'light';
@@ -610,7 +610,7 @@ declare module "ui/navbar/NavbarToggler" {
     }
     export default function NavbarToggler({ color, ripple, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/navbar/NavbarWrapper" {
+declare module "dmf_ui/navbar/NavbarWrapper" {
     import React from 'react';
     type Props = {
         className?: string;
@@ -618,7 +618,7 @@ declare module "ui/navbar/NavbarWrapper" {
     };
     export default function NavbarWrapper({ children, className }: Props): JSX.Element;
 }
-declare module "ui/tab/Tab" {
+declare module "dmf_ui/tab/Tab" {
     import React from 'react';
     type Props = {
         className?: string;
@@ -626,14 +626,14 @@ declare module "ui/tab/Tab" {
     };
     export default function Tab({ children, className }: Props): JSX.Element;
 }
-declare module "ui/tab/TabContent" {
+declare module "dmf_ui/tab/TabContent" {
     import React from 'react';
     type Props = {
         children: React.ReactNode;
     };
     export default function TabContent({ children }: Props): JSX.Element;
 }
-declare module "ui/tab/TabItem" {
+declare module "dmf_ui/tab/TabItem" {
     import React, { AnchorHTMLAttributes } from 'react';
     interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
         children: React.ReactNode;
@@ -643,9 +643,9 @@ declare module "ui/tab/TabItem" {
     }
     export default function TabItem({ children, active, ripple, className, ...rest }: Props): JSX.Element;
 }
-declare module "ui/tab/TabList" {
+declare module "dmf_ui/tab/TabList" {
     import React from 'react';
-    import { Color } from "ui/core/Core";
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         children: React.ReactNode;
         className?: string;
@@ -661,7 +661,7 @@ declare module "ui/tab/TabList" {
     };
     export default function TabList({ children, color, className }: Props): JSX.Element;
 }
-declare module "ui/tab/TabPane" {
+declare module "dmf_ui/tab/TabPane" {
     import React from 'react';
     type Props = {
         children: React.ReactNode;
@@ -670,8 +670,8 @@ declare module "ui/tab/TabPane" {
     };
     export default function TabPane({ children, active, className, }: Props): JSX.Element;
 }
-declare module "ui/Progress" {
-    import { Color } from "ui/core/Core";
+declare module "dmf_ui/Progress" {
+    import { Color } from "dmf_ui/core/Core";
     type Props = {
         value: number;
         percentage?: boolean;
@@ -679,16 +679,16 @@ declare module "ui/Progress" {
     };
     export default function Progress({ color, value, percentage, }: Props): JSX.Element;
 }
-declare module "ui/pagination/Pagination" {
+declare module "dmf_ui/pagination/Pagination" {
     import React from 'react';
     type Props = {
         children: React.ReactNode;
     };
     export default function Pagination({ children }: Props): JSX.Element;
 }
-declare module "ui/pagination/PaginationItem" {
+declare module "dmf_ui/pagination/PaginationItem" {
     import React, { AnchorHTMLAttributes } from 'react';
-    import { Color, RippleType } from "ui/core/Core";
+    import { Color, RippleType } from "dmf_ui/core/Core";
     interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
         color?: Color;
         ripple?: RippleType;
