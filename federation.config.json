@@ -4,6 +4,7 @@
     "./label/Label": "./src/components/label/Label/Label",
     "./label/ClosingLabel": "./src/components/label/ClosingLabel/ClosingLabel",
     "./Button": "./src/components/Button/Button",
+    "./Icon": "./src/components/Icon/Icon",
     "./alert/Alert": "./src/components/alert/Alert/Alert",
     "./alert/ClosingAlert": "./src/components/alert/ClosingAlert/ClosingAlert",
 
