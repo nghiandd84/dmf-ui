@@ -51,22 +51,25 @@ export const DemoForm = () => {
           <DropdownItem ripple="light">Something else</DropdownItem>
         </Dropdown>
         <Input
-          placeholder="Enter user name"
+          label="User name"
+          placeholder="Type your name"
           size="base"
           type="text"
           color="secondary"
-          />
-        
+        />
+
         <Input
-          placeholder="Enter number large"
+          value={2233}
+          label="Enter number large"
           size="lg"
           type="text"
           color="danger"
           iconFamily="material"
           iconName="people"
-        /> 
+        />
         <Input
-          placeholder="Enter password"
+          label="Enter password"
+          placeholder="pass@word1"
           size="base"
           type="password"
           color="success"
@@ -75,7 +78,7 @@ export const DemoForm = () => {
           iconName="block"
         />
         <Input
-          placeholder="Enter number large"
+          label="Enter number large"
           size="lg"
           type="number"
           color="danger"
@@ -91,7 +94,7 @@ export const DemoForm = () => {
           placeholder="Text area example"
           size="base"
           rows={4}
-          onChange={e => console.log(e)}
+          onChange={(e) => console.log(e)}
         />
         <Image
           width="100"

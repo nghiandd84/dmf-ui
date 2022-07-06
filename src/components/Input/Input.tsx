@@ -1,9 +1,10 @@
-import React, { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, useState } from 'react';
 import { Color, BaseSize, Border } from '../core/Core';
 import tw, { TwStyle } from 'twin.macro';
 
 interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
-  placeholder: string;
+  label?: string;
+  placeholder?: string;
   color?: Color;
   size?: BaseSize;
   outline?: boolean;
@@ -11,6 +12,7 @@ interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   success?: string;
   iconFamily?: 'material' | 'awesome';
   iconName?: string;
+  value?: any;
 }
 
 const mtInputColors = {
@@ -42,6 +44,7 @@ const mtInputOutlineFocusColor = {
 
 export default function Input({
   placeholder,
+  label,
   color = 'primary',
   size = 'base',
   outline = false,
@@ -49,9 +52,11 @@ export default function Input({
   success = null,
   iconFamily = null,
   iconName = null,
+  value = undefined,
   ...rest
 }: Props) {
   let labelBorderColor: TwStyle;
+  const [valueState, setValueState] = useState(value);
 
   const containerTw: TwStyle[] = [
     tw`relative w-full`,
@@ -128,22 +133,23 @@ export default function Input({
       />
     );
   }
-
   return (
     <>
       <div css={containerTw}>
       {iconUI && iconUI}
         <input
           {...rest}
-          placeholder=" "
+          value={valueState}
+          onChange={e => setValueState(e.target.value)}
+          placeholder={placeholder || undefined}
           css={inputCssTw}
-          className={`${error ? 'mt-input-outline-error ' : ''}${
+          className={`${error ? 'mt-input-outline-error ' : ''}  placeholder-opacity-0 ${
             success ? 'mt-input-outline-success ' : ''
           } ${outline ? mtInputOutlineColors[color] : mtInputColors[color]}`}
         />
         <label css={labelTw}>
           {outline ? (
-            placeholder
+            label
           ) : (
             <span
               css={[
@@ -151,7 +157,7 @@ export default function Input({
                 size === 'sm' && tw`text-sm`,
               ]}
             >
-              {placeholder}
+              {label}
             </span>
           )}
         </label>

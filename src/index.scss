@@ -71,6 +71,13 @@
 }
 
 /* Material Tailwind Input */
+.mt-input::placeholder {
+  opacity: 0;
+}
+.mt-input:focus::placeholder {
+  opacity: 0.5;
+  font-size: small;
+}
 .mt-input + label:after {
   content: '';
   @apply absolute top-0.5 left-0 w-full h-full pointer-events-none transform scale-x-0 border border-t-0 border-l-0 border-r-0 border-b-2 transition-all duration-300;
@@ -90,6 +97,13 @@
 }
 
 /* Material Tailwind Input Outline */
+.mt-input-outline::placeholder {
+  opacity: 0;
+}
+.mt-input-outline:focus::placeholder {
+  opacity: 0.5;
+  font-size: small;
+}
 .mt-input-outline:focus,
 .mt-input-outline:not(:placeholder-shown) {
   border-top: transparent !important;
