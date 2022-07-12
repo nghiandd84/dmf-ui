@@ -1,7 +1,7 @@
 import React from 'react';
 import DynamicForm, { FormInput } from '../dynamics/form/DynamicForm';
 export const DemoDynamicForm = () => {
-  const formData: FormInput[] = [
+  const formData: (FormInput | FormInput[])[] = [
     /*
     {
       name: 'name',
@@ -30,7 +30,7 @@ export const DemoDynamicForm = () => {
         },
       ],
     },
-    
+    */
     {
       name: 'password',
       type: 'password',
@@ -61,7 +61,7 @@ export const DemoDynamicForm = () => {
         },
       ],
     },
-    */
+    
     {
       name: 'gender',
       type: 'radio',
@@ -80,7 +80,7 @@ export const DemoDynamicForm = () => {
         },
       ],
     },
-
+    
     {
       name: 'number-demo',
       label: 'number only',
@@ -88,29 +88,64 @@ export const DemoDynamicForm = () => {
       placeholder: '0123456789',
       filter: 'numeric',
     },
-
-  
-    /*
-    {
-      name: 'uppercase',
-      label: 'Auto transform uppercase',
-      placeholder: 'Uppercase transformer',
-      transformer: {
-        onChange: 'uppercase',
+    
+    [
+      {
+        name: 'a',
+        label: 'A-value',
+        type: 'number',
+        placeholder: '0123456789',
+        validationRules: [
+          {
+            rule: 'required',
+            message: 'Please enter a A-value',
+          }
+        ],
+        inputClass: 'md:w-1/2'
       },
+      {
+        name: 'b',
+        label: 'B',
+        type: 'text',
+        inputClass: 'md:w-1/2'
+      },
+    ],
+    
+    {
+      name: 'select_type',
+      type: 'select',
+      label: 'Select Type',
+      placement: 'bottom-start',
+      inputClass: 'select-type md:w-1/2',
+      selectClass: 'w-full',
+      color: 'success',
+      options: [
+        {
+          name: 'male',
+          value: 'm',
+          text: 'Male',
+        },
+        {
+          name: 'female',
+          value: 'f',
+          text: 'Female',
+        },
+      ],
     },
-    */
   ];
   const defaultValue = {
     'number-demo': 999,
     gender: 'm',
+    a: 12,
+    b: 'Test B',
+    select_type: 'f',
   };
   return (
     <>
       <h1>Demo Dynamic Form</h1>
       <DynamicForm
         classPrefix={'df'}
-        form={formData}
+        inputs={formData}
         submitButton={{
           text: 'Save',
           className: 'submit',

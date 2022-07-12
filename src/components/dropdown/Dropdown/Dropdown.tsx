@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, Fragment } from 'react';
 import Ripple from 'material-ripple-effects';
 import Tippy from '@tippyjs/react';
 import {
@@ -21,7 +21,7 @@ import {
 import tw from 'twin.macro';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  buttonText: string;
+  buttonText?: string;
   buttonType?: 'outline' | 'link' | 'fill';
   size?: BaseSize;
   placement?: Placement;
@@ -105,7 +105,7 @@ export default function Dropdown({
   }
 
   return (
-    <div>
+    <Fragment>
       <Tippy
         content={
           <div
@@ -138,6 +138,6 @@ export default function Dropdown({
           </span>
         </button>
       </Tippy>
-    </div>
+    </Fragment>
   );
 }

@@ -141,7 +141,7 @@ export default function Input({
           {...rest}
           value={valueState}
           onChange={e => setValueState(e.target.value)}
-          placeholder={placeholder || undefined}
+          placeholder={placeholder || ' '}
           css={inputCssTw}
           className={`${error ? 'mt-input-outline-error ' : ''}  placeholder-opacity-0 ${
             success ? 'mt-input-outline-success ' : ''

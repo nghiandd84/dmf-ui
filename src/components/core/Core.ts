@@ -26,6 +26,16 @@ export const TextColor = {
   warning: tw`text-warning-500`,
   info: tw`text-info-500`,
 };
+
+export const TextColorWithBg = {
+  primary: tw`text-primary-50`,
+  secondary: tw`text-secondary-50`,
+  success: tw`text-success-50`,
+  danger: tw`text-danger-50`,
+  warning: tw`text-warning-50`,
+  info: tw`text-info-50`,
+};
+
 export const Border = {
   primary: tw`border-primary-500`,
   secondary: tw`border-secondary-500`,
@@ -43,6 +53,15 @@ export const Bg = {
   danger: tw`bg-danger-500`,
   warning: tw`bg-warning-500`,
   info: tw`bg-info-500`,
+};
+
+export const BgLight = {
+  primary: tw`bg-primary-50`,
+  secondary: tw`bg-secondary-50`,
+  success: tw`bg-success-50`,
+  danger: tw`bg-danger-50`,
+  warning: tw`bg-warning-50`,
+  info: tw`bg-info-50`,
 };
 export const FocusBg = {
   primary: tw`focus:bg-primary-400`,

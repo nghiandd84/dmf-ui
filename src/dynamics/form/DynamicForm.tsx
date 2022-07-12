@@ -1,7 +1,14 @@
 // Build from https://github.com/langleyfoxall/react-dynamic-form-builder
 import React, { Fragment } from 'react';
 import Button from '../../components/Button';
-import { BaseSize } from '../../components/core/Core';
+import {
+  BaseSize,
+  Color,
+  Placement,
+  RippleType,
+} from '../../components/core/Core';
+import Dropdown from '../../components/dropdown/Dropdown';
+import DropdownItem from '../../components/dropdown/DropdownItem';
 import Input from '../../components/Input';
 import Radio from '../../components/Radio';
 
@@ -45,31 +52,48 @@ export type ValidateFunc = (
   fieldValue: any,
   formValue?: any
 ) => boolean;
-export type FormInput = {
+
+interface FormInputBase {
   name: string;
   type?: InputType;
   label?: string;
+  color?: Color;
   placeholder?: string;
   filter?: string;
   validationRules?:
     | { rule: string | ValidateFunc | RegExp; message?: string }[]
     | string[];
+  size?: BaseSize;
   transformer?: Record<string, string>;
   inputClass?: string;
-  defaultOptionText?: string;
-  htmlProps?: any;
-  render?: any;
-  options?: any[];
-  radioContainerClass?: string;
-  size?: BaseSize;
-};
+}
+
+export interface RadioInput extends FormInputBase {
+  options?: OptionInput[];
+  radioClass?: string;
+}
+
+export interface SelectInput extends FormInputBase {
+  options?: OptionInput[];
+  placement?: Placement;
+  selectClass?: string;
+  styleType?: 'outline' | 'link' | 'fill';
+  rippleType?: RippleType;
+}
+
+export type FormInput = RadioInput | SelectInput | FormInputBase;
+
+export interface OptionInput {
+  name: string;
+  text: string;
+  value: any;
+}
 
 type Props = {
   defaultValues?: Record<string, any>;
   classPrefix?: string;
   defaultContainerClass?: string;
   defaultInputClass?: string;
-  form: FormInput[];
   defaultSubmitClass?: string;
   inputs?: FormInput | (FormInput | FormInput[])[];
   invalidInputClass?: string;
@@ -88,7 +112,7 @@ type Props = {
 
 type State = {
   form: Record<string, any>;
-  inputs: (FormInput | FormInput[]) [];
+  inputs: FormInput | (FormInput | FormInput[])[];
   canRender: any[];
   validationErrors: Record<string, any>;
   randomisedFields: Record<string, any>;
@@ -146,10 +170,9 @@ class DynamicForm extends React.Component<Props, State> {
     return flatten(entity);
   }
 
-  static getDerivedStateFromProps({ form }, state) {
+  static getDerivedStateFromProps(props: Props, state: State) {
     const { form: values, validationErrors: errors, randomisedFields } = state;
-    const inputs = DynamicForm.flatInputs(form);
-
+    const inputs = DynamicForm.flatInputs(props.inputs);
     const newRandomisedFields = { ...randomisedFields };
     const newValues = { ...values };
     const newErrors = { ...errors };
@@ -176,7 +199,7 @@ class DynamicForm extends React.Component<Props, State> {
 
     return {
       ...state,
-      inputs: form,
+      inputs: props.inputs,
       canRender: canRender,
       form: newValues,
       validationErrors: newErrors,
@@ -201,31 +224,13 @@ class DynamicForm extends React.Component<Props, State> {
     }
   }
 
-  componentDidUpdate(prevProps: Props) {
-    const { values: ppValues } = prevProps;
-    const { values: pValues } = this.props;
-
-    if (pValues) {
-      if (JSON.stringify(pValues) !== JSON.stringify(ppValues)) {
-        const form = {
-          ...ppValues,
-          ...pValues,
-        };
-
-        this.propagateChange(form);
-      }
-    }
-
-    return null;
-  }
-
   validateForm(display = true): [boolean, Record<string, boolean>] {
-    const { form } = this.props;
+    const { inputs } = this.props;
 
     let invalid = false;
     let { validationErrors, form: stateForm } = this.state;
 
-    flatten(form).forEach((input: any) => {
+    flatten(inputs).forEach((input: any) => {
       if (!input.validationRules) {
         return;
       }
@@ -440,15 +445,19 @@ class DynamicForm extends React.Component<Props, State> {
     clearTimeout(this.timer);
 
     let validationErrors = {};
-
+    console.log('handleInput', input, event);
     if (input.filter && !this.applyFilter(event, input.filter)) {
       return;
     }
 
     let value = event.target.value;
-
+    console.log('A', value);
     if (input.type === 'checkbox') {
       value = event.target.checked;
+    }
+    console.log('B');
+    if (input.type === 'select') {
+      value = event.target.value;
     }
 
     if (input.transformer && input.transformer.onChange) {
@@ -517,33 +526,33 @@ class DynamicForm extends React.Component<Props, State> {
       : propError;
   }
 
-  renderCustomInput(input) {
-    const { form } = this.state;
+  // renderCustomInput(input: FormInput) {
+  //   const { form } = this.state;
 
-    if (typeof input.render !== 'function') {
-      if (!React.isValidElement(input.render)) {
-        return input.render;
-      }
+  //   if (typeof input.render !== 'function') {
+  //     if (!React.isValidElement(input.render)) {
+  //       return input.render;
+  //     }
 
-      return React.cloneElement(input.render, {
-        name: input.name,
-        placeholder: input.placeholder,
-        value: form[input.name] || '',
-        onChange: this.handleBlur.bind(this, input),
-        onBlur: this.handleBlur.bind(this, input),
-        invalid: !!this.getInputValidationError(input.name) || undefined,
-      });
-    }
+  //     return React.cloneElement(input.render, {
+  //       name: input.name,
+  //       placeholder: input.placeholder,
+  //       value: form[input.name],
+  //       onChange: this.handleBlur.bind(this, input),
+  //       onBlur: this.handleBlur.bind(this, input),
+  //       invalid: !!this.getInputValidationError(input.name) || undefined,
+  //     });
+  //   }
 
-    return input.render(
-      input,
-      form[input.name] || '',
-      this.handleInput.bind(this, input),
-      this.handleBlur.bind(this, input),
-      this.getInputValidationError(input.name),
-      this.state
-    );
-  }
+  //   return input.render(
+  //     input,
+  //     form[input.name] || '',
+  //     this.handleInput.bind(this, input),
+  //     this.handleBlur.bind(this, input),
+  //     this.getInputValidationError(input.name),
+  //     this.state
+  //   );
+  // }
 
   renderSubmitButton() {
     const { submitButton, classPrefix, defaultSubmitClass, loading } =
@@ -551,17 +560,19 @@ class DynamicForm extends React.Component<Props, State> {
 
     if (submitButton) {
       return (
-        <Button
-          ripple="dark"
-          className={`${classPrefix}-${
-            submitButton.className || defaultSubmitClass || ''
-          } ${this.validateForm(false) ? '' : 'invalid'} ${
-            loading ? 'loading' : ''
-          }`}
-          onClick={this.submitForm}
-        >
-          {this.renderSubmitButtonContents()}
-        </Button>
+        <div className="mt-2 mb-2">
+          <Button
+            ripple="dark"
+            className={`${classPrefix}-${
+              submitButton.className || defaultSubmitClass || ''
+            } ${this.validateForm(false) ? '' : 'invalid'} ${
+              loading ? 'loading' : ''
+            }`}
+            onClick={this.submitForm}
+          >
+            {this.renderSubmitButtonContents()}
+          </Button>
+        </div>
       );
     }
   }
@@ -589,14 +600,14 @@ class DynamicForm extends React.Component<Props, State> {
         {inputs.map((input, i) => {
           const isArray = input.constructor === Array;
           const containerClass = isArray
-            ? `${classPrefix}-row`
-            : `${classPrefix}-${
+            ? `${classPrefix}-row flex flex-wrap flex-col md:flex-row`
+            : `p-1 ${classPrefix}-${
                 input.containerClass || defaultContainerClass || ''
               }`;
 
           return (
             <Fragment key={i}>
-              <div className={`mb-1 mt-2 ${containerClass}`}>
+              <div className={`${containerClass} ${input.inputClass || ''}`}>
                 {this.renderInput(input)}
               </div>
             </Fragment>
@@ -610,9 +621,9 @@ class DynamicForm extends React.Component<Props, State> {
     if (inputs.constructor === Array) {
       return this.renderInputs(inputs);
     }
-    const input: FormInput = inputs as FormInput;
-    console.log(input, this);
-    const defaultValue = (this.props.defaultValues || {})[input.name];
+    const input = inputs as FormInput;
+    const selectedValue = this.state.form[input.name] || (this.props.defaultValues || {})[input.name];
+    console.log('renderInput', input, selectedValue, this);
 
     const { form, validationErrors, randomisedFields } = this.state;
 
@@ -624,9 +635,9 @@ class DynamicForm extends React.Component<Props, State> {
       validInputClass,
     } = this.props;
 
-    if (input.render) {
-      return this.renderCustomInput(input);
-    }
+    // if (input.render) {
+    //   return this.renderCustomInput(input);
+    // }
 
     const props = {
       className: `${classPrefix}-${
@@ -640,17 +651,18 @@ class DynamicForm extends React.Component<Props, State> {
           : ''
       }`,
       name: randomisedFields[input.name] || input.name,
-      value: form[input.name] || defaultValue || '',
+      value: form[input.name] || selectedValue || '',
       placeholder: input.placeholder,
       id: input.name,
       onChange: this.handleInput.bind(this, input),
       onBlur: this.handleBlur.bind(this, input),
-      ...input.htmlProps,
+      // TODO htmlProps
+      // ...input.htmlProps,
     };
 
     switch (input.type) {
-      case 'custom':
-        return this.renderCustomInput(input);
+      // case 'custom':
+      //   return this.renderCustomInput(input);
       case 'textarea':
         return <textarea {...props} />;
       case 'checkbox':
@@ -659,37 +671,68 @@ class DynamicForm extends React.Component<Props, State> {
             {...props}
             type={input.type}
             onBlur={undefined}
-            defaultChecked={props.defaultValue}
+            // defaultChecked={props.defaultValue}
             checked={props.value}
           />
         );
       case 'select':
+        const selectInput = inputs as SelectInput;
         return (
-          <select {...props}>
-            {input.defaultOptionText && (
-              // <option hidden selected value> TODO fix later
-              <option hidden selected>
-                {input.defaultOptionText}
-              </option>
-            )}
-            {(input.options || []).map((option) => {
-              return <option value={option.value}>{option.text}</option>;
+          // <select {...props}>
+          //   {input.defaultOptionText && (
+          //     // <option hidden selected value> TODO fix later
+          //     <option hidden selected>
+          //       {input.defaultOptionText}
+          //     </option>
+          //   )}
+          //   {(input.options || []).map((option) => {
+          //     return <option value={option.value}>{option.text}</option>;
+          //   })}
+          // </select>
+
+          <Dropdown
+            color={input.color || 'primary'}
+            placement={selectInput.placement || 'bottom-end'}
+            buttonText={input.label}
+            buttonType={selectInput.styleType || 'outline'}
+            className={selectInput.selectClass}
+            size={input.size || 'base'}
+            
+            // rounded={true}
+            ripple={selectInput.rippleType || 'light'}
+          >
+            {(selectInput.options || []).map((option) => {
+              return (
+                <DropdownItem
+                  color={input.color || 'primary'}
+                  value={option.value}
+                  selected={option.value === selectedValue}
+                  ripple={selectInput.rippleType || 'light'}
+                  onClick={(e: any, value) => {
+                    e.target.name = input.name;
+                    e.target.value = value;
+                    console.log('Radio On click', e, value);
+                    this.handleInput(input, e);
+                  }}
+                >
+                  {option.text}
+                </DropdownItem>
+              );
             })}
-          </select>
+          </Dropdown>
         );
       case 'radio':
+        const radioInput = input as RadioInput;
         return (
           <Fragment>
-            {(input.options || []).map((option, i) => {
+            {(radioInput.options || []).map((option, i) => {
               return (
                 <div
-                  key={i}
-                  className={`${classPrefix}-${
-                    input.radioContainerClass || ''
-                  }`}
+                  key={`${input.name}-r-${i}`}
+                  className={`${classPrefix}-${input.inputClass || ''}`}
                 >
                   <Radio
-                    defaultChecked={option.value === defaultValue}
+                    defaultChecked={option.value === selectedValue}
                     text={option.text}
                     name={input.name}
                     value={option.value}
@@ -701,11 +744,10 @@ class DynamicForm extends React.Component<Props, State> {
           </Fragment>
         );
       default:
-        console.log(props);
         return (
           <Input
             {...props}
-            value={defaultValue}
+            value={selectedValue}
             label={input.label}
             placeholder={input.placeholder}
             size={input.size || 'base'}
