@@ -71,6 +71,8 @@
 
     "./Progress": "./src/components/Progress/Progress",
     "./pagination/Pagination": "./src/components/pagination/Pagination/Pagination",
-    "./pagination/PaginationItem": "./src/components/pagination/PaginationItem/PaginationItem"
+    "./pagination/PaginationItem": "./src/components/pagination/PaginationItem/PaginationItem",
+    
+    "./form/DynamicForm": "./src/dynamics/form"
   }
 }

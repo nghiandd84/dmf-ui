@@ -134,7 +134,7 @@ export default function Input({
     );
   }
   return (
-    <>
+    <div>
       <div css={containerTw}>
       {iconUI && iconUI}
         <input
@@ -162,8 +162,8 @@ export default function Input({
           )}
         </label>
       </div>
-      {error && <span tw="block text-xs text-red-500">{error}</span>}
-      {success && <span tw="block text-xs text-green-500">{success}</span>}
-    </>
+      {error && <span tw="block text-xs text-red-500 m-1">{error}</span>}
+      {success && <span tw="block text-xs text-green-500 m-1">{success}</span>}
+    </div>
   );
 }

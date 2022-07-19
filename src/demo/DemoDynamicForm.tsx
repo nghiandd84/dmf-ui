@@ -2,7 +2,6 @@ import React from 'react';
 import DynamicForm, { FormInput } from '../dynamics/form/DynamicForm';
 export const DemoDynamicForm = () => {
   const formData: (FormInput | FormInput[])[] = [
-    /*
     {
       name: 'name',
       label: 'User name',
@@ -14,7 +13,7 @@ export const DemoDynamicForm = () => {
         },
       ],
     },
-    
+
     {
       name: 'email',
       label: 'Email',
@@ -30,38 +29,41 @@ export const DemoDynamicForm = () => {
         },
       ],
     },
-    */
-    {
-      name: 'password',
-      type: 'password',
-      label: 'Password',
-      placeholder: 'pass@word1',
-      validationRules: [
-        {
-          rule: 'required',
-          message: 'Please enter a password',
-        },
-      ],
-    },
-    {
-      name: 'confirmation_password',
-      type: 'password',
-      label: 'Confirm Password',
-      placeholder: 'pass@word1',
-      validationRules: [
-        {
-          rule: 'required',
-          message: 'Please enter a confirm password',
-        },
-        {
-          rule: (_, value, formValue) => {
-            return value === formValue.password;
+    [
+      {
+        name: 'password',
+        type: 'password',
+        label: 'Password',
+        placeholder: 'pass@word1',
+        inputClass: 'md:w-1/2',
+        validationRules: [
+          {
+            rule: 'required',
+            message: 'Please enter a password',
           },
-          message: 'Confirm password must match password',
-        },
-      ],
-    },
-    
+        ],
+      },
+      {
+        name: 'confirmation_password',
+        type: 'password',
+        label: 'Confirm Password',
+        placeholder: 'pass@word1',
+        inputClass: 'md:w-1/2',
+        validationRules: [
+          {
+            rule: 'required',
+            message: 'Please enter a confirm password',
+          },
+          {
+            rule: (_, value, formValue) => {
+              return value === formValue.password;
+            },
+            message: 'Confirm password must match password',
+          },
+        ],
+      },
+    ],
+
     {
       name: 'gender',
       type: 'radio',
@@ -71,16 +73,16 @@ export const DemoDynamicForm = () => {
         {
           name: 'male',
           value: 'm',
-          text: 'Male',
+          label: 'Male',
         },
         {
           name: 'female',
           value: 'f',
-          text: 'Female',
+          label: 'Female',
         },
       ],
     },
-    
+
     {
       name: 'number-demo',
       label: 'number only',
@@ -88,7 +90,7 @@ export const DemoDynamicForm = () => {
       placeholder: '0123456789',
       filter: 'numeric',
     },
-    
+
     [
       {
         name: 'a',
@@ -99,46 +101,82 @@ export const DemoDynamicForm = () => {
           {
             rule: 'required',
             message: 'Please enter a A-value',
-          }
+          },
         ],
-        inputClass: 'md:w-1/2'
+        inputClass: 'md:w-1/2',
       },
       {
         name: 'b',
         label: 'B',
         type: 'text',
-        inputClass: 'md:w-1/2'
+        inputClass: 'md:w-1/2',
       },
     ],
-    
+
     {
       name: 'select_type',
       type: 'select',
       label: 'Select Type',
-      placement: 'bottom-start',
-      inputClass: 'select-type md:w-1/2',
+      inputClass: 'select-type md:w-1/2 pt-2',
       selectClass: 'w-full',
-      color: 'success',
       options: [
         {
           name: 'male',
           value: 'm',
-          text: 'Male',
+          label: 'Male',
         },
         {
           name: 'female',
           value: 'f',
-          text: 'Female',
+          label: 'Female',
+        },
+      ],
+      validationRules: [
+        {
+          rule: 'required',
+          message: 'Please select type',
         },
       ],
     },
+    [
+      {
+        name: 'date',
+        label: 'date',
+        type: 'date',
+        inputClass: 'md:w-1/4',
+      },
+      {
+        name: 'time',
+        label: 'Time',
+        type: 'time',
+        inputClass: 'md:w-1/4',
+      },
+    ],
+
+    [
+      {
+        name: 'disabled',
+        label: 'Disabled',
+        type: 'checkbox',
+        inputClass: 'md:w-1/4',
+      },
+      {
+        name: 'disabled_date',
+        label: 'Disabled Date',
+        type: 'date',
+        inputClass: 'md:w-1/4',
+        onHide: (data: any) => {
+          return !data.disabled;
+        },
+      },
+    ],
   ];
   const defaultValue = {
     'number-demo': 999,
     gender: 'm',
     a: 12,
     b: 'Test B',
-    select_type: 'f',
+    select_type: null,
   };
   return (
     <>

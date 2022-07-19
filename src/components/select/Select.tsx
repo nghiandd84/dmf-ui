@@ -1,5 +1,6 @@
 import Tippy from '@tippyjs/react';
 import React, {
+  Fragment,
   MutableRefObject,
   OptionHTMLAttributes,
   Ref,
@@ -10,14 +11,20 @@ import React, {
   useState,
 } from 'react';
 import tw, { TwStyle } from 'twin.macro';
-import { BgLight, Border, Color, OutlineHoverBg, TextColor } from '../core/Core';
+import {
+  BgLight,
+  Border,
+  Color,
+  OutlineHoverBg,
+  TextColor,
+} from '../core/Core';
 
 interface Option {
   value: any;
   label: React.ReactNode;
 }
 interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
-  label: string;
+  label?: string;
   options: Option[];
   className?: string;
   error?: string;
@@ -31,7 +38,7 @@ interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
   placeholder?: string;
   color?: Color;
   iconFamily?: 'material' | 'awesome';
-  onValueChange?: (value: any[]) => void;
+  onValueChange?: (event: any, value: any[]) => void;
 }
 
 const colors = {
@@ -106,7 +113,6 @@ export default function Select({
   const [selected, setSelected] = useState<any[]>(
     Array.isArray(value) ? value : [value]
   );
-  console.log(selected);
   const componentRef: any = useRef<HTMLDivElement>();
   const { width, height } = useResize(componentRef);
   const handleSelect = (
@@ -125,7 +131,14 @@ export default function Select({
       }
     }
     setSelected(result);
-    onValueChange(result);
+    if (multiple) {
+      onValueChange(
+        event,
+        result.map((item) => item.value)
+      );
+    } else {
+      onValueChange(event, result.length > 0 ? result[0].value : null);
+    }
   };
   const optionTw = [
     tw`cursor-pointer select-none relative py-2 pl-3 pr-9 m-1 `,
@@ -139,7 +152,6 @@ export default function Select({
   const selectFilled = [
     tw`border-solid border-0 border-b-2`,
     open ? tw`border-b-2` : null,
-    // open ? mtSelectColors[color]: null,
   ];
   const selectOutline = [
     tw`rounded-md shadow-sm`,
@@ -155,19 +167,24 @@ export default function Select({
     selectCssTw.push(...selectFilled);
   }
 
-  let labelBorderColor: TwStyle;
+  let labelBorderColor: TwStyle | null = null;
   if (error) {
     labelBorderColor = Border['danger'];
   } else if (success) {
     labelBorderColor = Border['success'];
-  } else {
-    labelBorderColor = Border['info'];
   }
 
   const labelTw: any[] = [
     tw`absolute left-0 w-full h-10 text-gray-400 pointer-events-none `,
-    labelBorderColor,
   ];
+
+  if (!!labelBorderColor) {
+    selectCssTw.push(labelBorderColor);
+    selectCssTw.push(tw`border-2 rounded-md`);
+    labelTw.push(TextColor['danger']);
+  }
+
+  const labelCss = tw`absolute transition-all duration-300 top-1/4 bg-white px-1`;
 
   return (
     <div className="relative w-full">
@@ -208,52 +225,60 @@ export default function Select({
           </div>
         }
       >
-        <div
-          css={selectCssTw}
-          ref={componentRef}
-          className={`mt-select ${outline ? '' : mtSelectColors[color]}`}
-        >
-          <label css={labelTw}>
-            <span
-              css={[
-                tw`absolute transition-all duration-300 top-1/4 bg-white px-1`,
-                (open || selected.length > 0 ) ? tw`-top-1/4 text-sm` : null,
-              ]}
-            >
-              {label}
-            </span>
-          </label>
+        <div>
           <div
-            tw="flex items-center flex-wrap pl-1"
-            className={`${selected.length > 0 ? 'have-value' : 'no-value'}`}
+            css={selectCssTw}
+            ref={componentRef}
+            className={`mt-select ${outline ? '' : mtSelectColors[color]}`}
           >
-            {selected.map((option) => (
-              <div
-                css={[
-                  tw`mt-1 mr-1 text-sm`,
-                  multiple ? tw`border rounded-md pl-1 pr-1` : null,
-                  Border[color],
-                  multiple ? BgLight[color]: null
-                ]}
+            <label css={labelTw}>
+              <span
+                style={{
+                  top: open || selected.length > 0 ? '-25%' : '20%',
+                  fontSize: open || selected.length > 0 ? '0.875rem' : '1rem',
+                }}
+                css={[tw`absolute transition-all duration-300  bg-white px-1`]}
               >
-                {option.label}
-              </div>
-            ))}
-            <div tw="m-1 p-1">&nbsp;</div>
-          </div>
-          <span tw="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-            {iconFamily === 'awesome' && (
-              <i
-                css={[TextColor[color], tw`w-4`]}
-                className={`fa ${open ? 'fa-angle-up' : 'fa-angle-down'}`}
-              />
-            )}
-            {iconFamily === 'material' && (
-              <span css={[TextColor[color]]} className={`material-icons`}>
-                {open ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
+                {label}
               </span>
-            )}
-          </span>
+            </label>
+            <div
+              tw="flex items-center flex-wrap pl-1"
+              className={`${selected.length > 0 ? 'have-value' : 'no-value'}`}
+            >
+              {selected.map((option, index) => (
+                <div
+                  key={`${idData}-selected-${index}`}
+                  css={[
+                    tw`mt-1 mr-1 text-sm`,
+                    multiple ? tw`border rounded-md pl-1 pr-1` : null,
+                    Border[color],
+                    multiple ? BgLight[color] : null,
+                  ]}
+                >
+                  {option.label}
+                </div>
+              ))}
+              <div tw="m-1 p-1">&nbsp;</div>
+            </div>
+            <span tw="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+              {iconFamily === 'awesome' && (
+                <i
+                  css={[TextColor[color], tw`w-4`]}
+                  className={`fa ${open ? 'fa-angle-up' : 'fa-angle-down'}`}
+                />
+              )}
+              {iconFamily === 'material' && (
+                <span css={[TextColor[color]]} className={`material-icons`}>
+                  {open ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
+                </span>
+              )}
+            </span>
+          </div>
+          {error && <span tw="block text-xs text-red-500 m-1">{error}</span>}
+          {success && (
+            <span tw="block text-xs text-green-500 m-1">{success}</span>
+          )}
         </div>
       </Tippy>
     </div>

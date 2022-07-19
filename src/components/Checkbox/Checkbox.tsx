@@ -20,11 +20,12 @@ export default function Checkbox({
   color = 'primary',
   text,
   id,
+  className,
   ...rest
 }: Props) {
   const idData = id || 'check-' + Math.ceil(Math.random() * 1000);
   return (
-    <div tw="flex items-center">
+    <div tw="flex items-center" className={className}>
       <input
         {...rest}
         id={idData}
