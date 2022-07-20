@@ -69,6 +69,33 @@
 
 /* Material Tailwind Input */
 
+.mt-input::-moz-placeholder {
+  opacity: 0;
+}
+
+.mt-input:-ms-input-placeholder {
+  opacity: 0;
+}
+
+.mt-input::placeholder {
+  opacity: 0;
+}
+
+.mt-input:focus::-moz-placeholder {
+  opacity: 0.5;
+  font-size: small;
+}
+
+.mt-input:focus:-ms-input-placeholder {
+  opacity: 0.5;
+  font-size: small;
+}
+
+.mt-input:focus::placeholder {
+  opacity: 0.5;
+  font-size: small;
+}
+
 .mt-input + label:after {
   content: '';
   pointer-events: none;
@@ -101,16 +128,19 @@
   --tw-scale-x: 1;
 }
 
-.mt-input:not(:-moz-placeholder-shown) + label span {
+.mt-input:not(:-moz-placeholder-shown) + label span 
+{
   top: -14%;
 }
 
-.mt-input:not(:-ms-input-placeholder) + label span {
+.mt-input:not(:-ms-input-placeholder) + label span 
+{
   top: -14%;
 }
 
 .mt-input:focus + label span,
-.mt-input:not(:placeholder-shown) + label span {
+.mt-input:not(:placeholder-shown) + label span 
+{
   top: -14%;
 }
 
@@ -146,6 +176,33 @@
 }
 
 /* Material Tailwind Input Outline */
+
+.mt-input-outline::-moz-placeholder {
+  opacity: 0;
+}
+
+.mt-input-outline:-ms-input-placeholder {
+  opacity: 0;
+}
+
+.mt-input-outline::placeholder {
+  opacity: 0;
+}
+
+.mt-input-outline:focus::-moz-placeholder {
+  opacity: 0.5;
+  font-size: small;
+}
+
+.mt-input-outline:focus:-ms-input-placeholder {
+  opacity: 0.5;
+  font-size: small;
+}
+
+.mt-input-outline:focus::placeholder {
+  opacity: 0.5;
+  font-size: small;
+}
 
 .mt-input-outline:not(:-moz-placeholder-shown) {
   border-top: transparent !important;
@@ -426,6 +483,32 @@
   border-color: rgba(16, 185, 129, var(--tw-border-opacity));
   --tw-text-opacity: 1;
   color: rgba(16, 185, 129, var(--tw-text-opacity));
+}
+
+/* Material Tailwind Select Colors */
+
+.mt-select-primary-500  {
+  border-color: var(--mf-primary-500);
+}
+
+.mt-select-secondary-500  {
+  border-color: var(--mf-secondary-500);
+}
+
+.mt-select-success-500  {
+  border-color: var(--mf-success-500);
+}
+
+.mt-select-danger-500  {
+  border-color: var(--mf-danger-500);
+}
+
+.mt-select-warning-500  {
+  border-color: var(--mf-warning-500);
+}
+
+.mt-select-info-500  {
+  border-color: var(--mf-info-500);
 }
 
 /* Material Tailwind Radio Button and Checkbox Colors */
