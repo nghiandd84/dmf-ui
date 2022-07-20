@@ -30,6 +30,7 @@
 
     "./Checkbox": "./src/components/Checkbox/Checkbox",
     "./Radio": "./src/components/Radio/Radio",
+    "./Select": "./src/components/Select/Select",
 
     "./Dropdown": "./src/components/dropdown/Dropdown/Dropdown",
     "./DropdownItem": "./src/components/dropdown/DropdownItem/DropdownItem",
@@ -73,6 +74,6 @@
     "./pagination/Pagination": "./src/components/pagination/Pagination/Pagination",
     "./pagination/PaginationItem": "./src/components/pagination/PaginationItem/PaginationItem",
     
-    "./form/DynamicForm": "./src/dynamics/form"
+    "./dynamicForm": "./src/form/DynamicForm/DynamicForm"
   }
 }

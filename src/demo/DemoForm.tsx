@@ -10,7 +10,7 @@ import DropdownLink from '../components/dropdown/DropdownLink';
 import Image from '../components/Image';
 import Input from '../components/Input';
 import TextArea from '../components/TextArea';
-import Select from '../components/select/Select';
+import Select from '../components/Select/Select';
 export const DemoForm = () => {
   const options = [
     { value: 'chocolate', label: 'Chocolate' },

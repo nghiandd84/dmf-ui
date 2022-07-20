@@ -1,5 +1,5 @@
 import React from 'react';
-import DynamicForm, { FormInput } from '../dynamics/form/DynamicForm';
+import DynamicForm, { FormInput } from '../form/DynamicForm/DynamicForm';
 export const DemoDynamicForm = () => {
   const formData: (FormInput | FormInput[])[] = [
     {

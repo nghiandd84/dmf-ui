@@ -1,9 +1,6 @@
 import Tippy from '@tippyjs/react';
 import React, {
-  Fragment,
   MutableRefObject,
-  OptionHTMLAttributes,
-  Ref,
   SelectHTMLAttributes,
   useCallback,
   useEffect,

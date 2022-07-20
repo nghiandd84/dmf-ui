@@ -16,7 +16,7 @@ const App = () => {
   const baseName = process.env.baseName || '/';
   return (
     <BrowserRouter basename={baseName}>
-      <div tw="mx-auto mt-10 mx-10 my-10">
+      <div tw="mx-auto mt-10 mx-10 my-10 border">
         <Routes>
           <Route path="form" element={<DemoForm />} />
           <Route path="alert" element={<DemoAlert />} />

@@ -5,7 +5,7 @@ import Checkbox from '../../components/Checkbox';
 import { BaseSize, Color } from '../../components/core/Core';
 import Input from '../../components/Input';
 import Radio from '../../components/Radio';
-import Select from '../../components/select/Select';
+import Select from '../../components/Select/Select';
 
 const flatten = (arr) => [].concat(...arr) as any[];
 
@@ -48,7 +48,7 @@ export type ValidateFunc = (
   formValue?: any
 ) => boolean;
 
-interface FormInputBase {
+export interface FormInputBase {
   name: string;
   type?: InputType;
   label?: string;
@@ -114,7 +114,7 @@ type State = {
   randomisedFields: Record<string, any>;
 };
 
-class DynamicForm extends React.Component<Props, State> {
+export default class DynamicForm extends React.Component<Props, State> {
   filterRules = {
     numeric: (value: string) => /^$|^[0-9]+$/.test(value),
     decimal: (value: string) => /^$|^[\d.]+$/.test(value),
@@ -148,8 +148,6 @@ class DynamicForm extends React.Component<Props, State> {
     decimal: (value: string) =>
       !value || /^$|^\d+$|^\.\d+|^\d+\.\d+$/.test(value),
   };
-
-  timer = setTimeout(() => {}, 0);
 
   constructor(props: Props) {
     super(props);
@@ -582,7 +580,7 @@ class DynamicForm extends React.Component<Props, State> {
             <Fragment key={i}>
               <div
                 className={`py-2 ${
-                  isRow && i == 0 ? 'pl-0' : 'md:pl-2 pl-0'
+                  isRow && i !== 0 ? 'md:pl-2 sm:pl-0' : 'pl-0'
                 } ${containerClass} ${input.inputClass || ''}`}
               >
                 {this.renderInput(input)}
@@ -646,7 +644,7 @@ class DynamicForm extends React.Component<Props, State> {
       case 'checkbox':
         return (
           <Checkbox
-            className="my-2"
+            tw="my-2 pl-2"
             text={input.label || ''}
             name={input.name}
             color={input.color}
@@ -681,6 +679,7 @@ class DynamicForm extends React.Component<Props, State> {
             {(radioInput.options || []).map((option, i) => {
               return (
                 <div
+                  tw="my-1 pl-2"
                   key={`${input.name}-r-${i}`}
                   className={`${classPrefix}-${input.inputClass || ''}`}
                 >
@@ -718,4 +717,3 @@ class DynamicForm extends React.Component<Props, State> {
   }
 }
 
-export default DynamicForm;
