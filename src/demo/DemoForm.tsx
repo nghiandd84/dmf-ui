@@ -39,10 +39,10 @@ export const DemoForm = () => {
           label="Select Food"
           placeholder="Test placeholder"
           options={options}
-          multiple={false}
-          // value={[options[2]]}
-          onValueChange={(data) => console.log('Change to new Data', data)}
-          error="required field"
+          // multiple={false}
+          // // value={[options[2]]}
+          // onValueChange={(data) => console.log('Change to new Data', data)}
+          // error="required field"
         />
 
         <Checkbox

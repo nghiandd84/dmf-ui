@@ -10,6 +10,7 @@ import { DemoTypography } from './demo/DemoTypography';
 import { DemoModal } from './demo/DemoModal';
 import { DemoNav } from './demo/DemoNav';
 import { DemoDynamicForm } from './demo/DemoDynamicForm';
+import { DemoTable } from './demo/DemoTable';
 
 const App = () => {
   const linkTw = tw`text-xl text-indigo-600 no-underline hover:underline`;
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="modal" element={<DemoModal />} />
           <Route path="nav" element={<DemoNav />} />
           <Route path="dynamic-form" element={<DemoDynamicForm />} />
+          <Route path="table" element={<DemoTable />} />
           DemoNav
         </Routes>
         <div tw="my-10">
@@ -62,6 +64,11 @@ const App = () => {
             <li>
               <NavLink css={[linkTw]} to="/dynamic-form">
                 Dynamic Form
+              </NavLink>
+            </li>
+            <li>
+              <NavLink css={[linkTw]} to="/table">
+                Table
               </NavLink>
             </li>
           </ul>

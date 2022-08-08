@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import Ripple from 'material-ripple-effects';
 import tw from 'twin.macro';
+import { Color } from '../core/Core';
 
 type Props = {
   buttonType?: 'fill' | 'outline' | 'link';
@@ -9,9 +10,10 @@ type Props = {
   className?: string;
   ripple?: 'dark' | 'light';
   size?: 'md' | 'sm' | 'lg';
-  color?: 'primary' | 'secondary';
+  color?: Color;
   iconOnly?: boolean;
   children?: React.ReactNode;
+  uppercase?: boolean;
   onClick?: (event: Event) => void;
 };
 
@@ -27,6 +29,7 @@ const Button = forwardRef<any, Props>(
       color,
       size,
       iconOnly,
+      uppercase = false,
       ...rest
     }: Props,
     ref

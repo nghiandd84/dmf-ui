@@ -102,17 +102,16 @@ export default function Input({
 
   let iconUI: any;
   const iconSizeMap = {
-    'sm': tw`text-lg`,
-    'lg': tw`text-xl`,
-    'base': tw`text-2xl`
-  }
-  let iconSize: string = iconSizeMap[size] || ''
+    sm: tw`text-lg`,
+    lg: tw`text-xl`,
+    base: tw`text-2xl`,
+  };
   if (iconFamily === 'material') {
     iconUI = (
       <span
         css={[
           tw`p-0 text-gray-600 text-opacity-60 border-none absolute top-1/2`,
-          iconSizeMap[size]
+          iconSizeMap[size],
         ]}
         className={`material-icons transform -translate-y-1/2  ${
           outline ? (size === 'sm' ? 'right-2' : 'right-3') : 'right-0'
@@ -126,8 +125,9 @@ export default function Input({
       <i
         css={[
           tw`absolute text-gray-600 border-none text-opacity-60 top-1/2`,
+          iconSizeMap[size],
         ]}
-        className={`fas transform -translate-y-1/2 ${iconName} ${iconSize}  ${
+        className={`fas transform -translate-y-1/2 ${iconName}  ${
           outline ? (size === 'sm' ? 'right-2' : 'right-3') : 'right-0'
         } `}
       />
@@ -136,14 +136,19 @@ export default function Input({
   return (
     <div>
       <div css={containerTw}>
-      {iconUI && iconUI}
+        {iconUI && iconUI}
         <input
           {...rest}
           value={valueState}
-          onChange={e => setValueState(e.target.value)}
+          onChange={(e) => {
+            setValueState(e.target.value);
+            rest.onChange!(e);
+          }}
           placeholder={placeholder || ' '}
           css={inputCssTw}
-          className={`${error ? 'mt-input-outline-error ' : ''}  placeholder-opacity-0 ${
+          className={`${
+            error ? 'mt-input-outline-error ' : ''
+          }  placeholder-opacity-0 ${
             success ? 'mt-input-outline-success ' : ''
           } ${outline ? mtInputOutlineColors[color] : mtInputColors[color]}`}
         />

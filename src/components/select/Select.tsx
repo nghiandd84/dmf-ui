@@ -68,7 +68,6 @@ const mtSelectOutlineFocusColor = {
 const useResize = (ref: MutableRefObject<HTMLElement | undefined>) => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
-
   const handleResize = useCallback(() => {
     setWidth(ref.current?.offsetWidth || 0);
     setHeight(ref.current?.offsetHeight || 0);
@@ -77,12 +76,15 @@ const useResize = (ref: MutableRefObject<HTMLElement | undefined>) => {
   useEffect(() => {
     window.addEventListener('load', handleResize);
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('load', handleResize);
       window.removeEventListener('resize', handleResize);
     };
   }, [ref, handleResize]);
+
+  useEffect(() => {
+    handleResize();
+  }, [ref]);
 
   return { width, height };
 };
@@ -111,7 +113,7 @@ export default function Select({
     Array.isArray(value) ? value : [value]
   );
   const componentRef: any = useRef<HTMLDivElement>();
-  const { width, height } = useResize(componentRef);
+  const { width } = useResize(componentRef);
   const handleSelect = (
     event: React.MouseEvent<HTMLLIElement, MouseEvent>,
     selectedData: any
@@ -180,8 +182,6 @@ export default function Select({
     selectCssTw.push(tw`border-2 rounded-md`);
     labelTw.push(TextColor['danger']);
   }
-
-  const labelCss = tw`absolute transition-all duration-300 top-1/4 bg-white px-1`;
 
   return (
     <div className="relative w-full">

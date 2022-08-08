@@ -21,7 +21,7 @@ export default function PaginationItem({
   const rippleEffect = new Ripple();
 
   return (
-    <li tw="grid place-items-center">
+    <li tw="grid place-items-center cursor-pointer">
       <a
         {...rest}
         css={[
