@@ -23,7 +23,7 @@ import {
 } from './table-sub-components';
 export * from './table-types';
 
-export default class ReactTailwindTable extends React.Component<Iprop, Istate> {
+export default class DataTable extends React.Component<Iprop, Istate> {
   static propTypes: {};
   static defaultProps: {};
   public state: Istate;
@@ -407,7 +407,7 @@ const tableTopProps = PropTypes.shape({
   }),
 });
 
-ReactTailwindTable.propTypes = {
+DataTable.propTypes = {
   /**
 	 * TODO: Implement server side render for table 
 	 * @param props 
@@ -481,7 +481,7 @@ ReactTailwindTable.propTypes = {
   }),
 };
 
-ReactTailwindTable.defaultProps = {
+DataTable.defaultProps = {
   noContentText: 'No Data Availaible',
   perPage: 10,
   debounce_search: 300,

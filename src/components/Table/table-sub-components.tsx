@@ -66,7 +66,7 @@ export function TableRow(props: ItableRow) {
     >
       {props.use_bulk_action && (
         <td
-          tw="px-4 py-2 text-base w-5 hidden sm:block"
+          tw="px-4 py-1 text-base w-5 hidden sm:table-cell"
           className={props.data_style}
         >
           <Checkbox
@@ -106,11 +106,11 @@ export function TableData(props: {
 }) {
   var display_value = utilsClass.unwindObject(props.row, props.col.field);
   return (
-    <td className={'px-2 py-2 text-sm w-3/6 sm:w-auto' + props.style}>
-      <span className="block font-bold font-thin text-xs text-gray-700 sm:hidden inset-x-0 p-1 bg-gray-300 pl-2 w-full">
+    <td tw="px-2 py-1 text-sm w-3/6 sm:w-auto">
+      <span tw="block font-bold text-xs text-gray-700 sm:hidden inset-x-0 p-1 bg-gray-300 pl-2 w-full">
         {props.col.use}
       </span>
-      <div className="px-1 py-1 sm:px-0 sm:py-0">
+      <div tw="px-1 py-1 sm:px-0 sm:py-0">
         {(props.render && props.render(props.row, props.col, display_value)) ||
           display_value}
       </div>
@@ -153,10 +153,10 @@ export function TableHead(props: Ithead) {
     return column.useInDisplay !== false;
   });
   return (
-    <tr className={'bg-yellow-50 text-left ' + props.row_style}>
+    <tr className={'bg-gray-300 text-left ' + props.row_style}>
       {props.useBulkAction && (
         <th
-          tw="text-base font-semibold text-gray-700 py-4 px-4"
+          tw="text-base font-semibold text-gray-700 py-2 px-4"
           className={props.data_style}
         >
           {all_is_checked && (
@@ -191,7 +191,7 @@ export function TableHead(props: Ithead) {
           <th
             key={index.toString()}
             className={
-              `text-base font-semibold text-black py-3.5 px-2 
+              `text-base font-semibold text-black py-1.5 px-2 
 			    					${!props.useBulkAction && index === 0 ? 'pl-4 ' : ''}
 			    					${index === display_columns.length - 1 ? 'pr-4 ' : ''} ` + props.data_style
             }

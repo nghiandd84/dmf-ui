@@ -74,6 +74,7 @@
     "./pagination/Pagination": "./src/components/pagination/Pagination/Pagination",
     "./pagination/PaginationItem": "./src/components/pagination/PaginationItem/PaginationItem",
     
-    "./dynamicForm": "./src/form/DynamicForm/DynamicForm"
+    "./dynamicForm": "./src/form/DynamicForm/DynamicForm",
+    "./DataTable": "./src/components/Table/Table"
   }
 }
